@@ -1,3 +1,5 @@
-# my-website
+# My Website
 
-Inspired by https://bradleyrosenfeld.com
+Inspired by <https://bradleyrosenfeld.com>
+
+Using <https://mithril.js.org>
