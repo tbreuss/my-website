@@ -1,18 +1,29 @@
-// src/index.js
 import m from "mithril";
-import UserList from "./views/UserList";
-import UserForm from "./views/UserForm";
+import Home from "./views/Home";
+import Unterwegs from "./views/Unterwegs";
+import Musik from "./views/Musik";
+import Portfolio from "./views/Portfolio";
 import Layout from "./views/Layout";
 
-m.route(document.body, "/list", {
-    "/list": {
-        render: function() {
-            return m(Layout, m(UserList))
+m.route(document.body, "/", {
+    "/portfolio": {
+        render: function () {
+            return m(Layout, m(Portfolio))
         }
     },
-    "/edit/:id": {
-        render: function(vnode) {
-            return m(Layout, m(UserForm, vnode.attrs))
+    "/musik": {
+        render: function () {
+            return m(Layout, m(Musik))
         }
     },
-})
+    "/unterwegs": {
+        render: function () {
+            return m(Layout, m(Unterwegs))
+        }
+    },
+    "/": {
+        render: function () {
+            return m(Layout, m(Home))
+        }
+    }
+});
