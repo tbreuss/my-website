@@ -1,4 +1,5 @@
 .idea
 api/config/main.php
+assets/media
 node_modules
 package-lock.json
