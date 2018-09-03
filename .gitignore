@@ -1,4 +1,4 @@
 .idea
-api/config/prod.php
+api/config/main.php
 node_modules
 package-lock.json
