@@ -1,6 +1,6 @@
 import m from "mithril";
 
-var Photo = {
+let Photo = {
     list: [],
     loadList: function() {
         return m.request({
@@ -24,6 +24,6 @@ var Photo = {
                 Photo.current = result
             })
     }
-}
+};
 
 export default Photo;

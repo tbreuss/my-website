@@ -1,6 +1,6 @@
 import m from "mithril";
 
-var Page = {
+let Page = {
     html: "",
     load: function (id) {
         return m.request({
@@ -14,6 +14,6 @@ var Page = {
                 Page.html = result
             })
     }
-}
+};
 
 export default Page;

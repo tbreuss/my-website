@@ -1,37 +1,36 @@
-/*! https://bradleyrosenfeld.com | Built at: 02/17/2018 18:24:41 | How are you doing today stranger? */
 @font-face {
     font-family: "Gentium Book Basic";
     font-style: normal;
     font-weight: 400;
-    src: local("Gentium Book Basic"),url("/assets/fonts/gentium/gentium-book-basic-v8-latin-regular.woff2") format("woff2"),url("/assets/fonts/gentium/gentium-book-basic-v8-latin-regular.woff") format("woff")
+    src: local("Gentium Book Basic"),url("/assets/fonts/gentium-book-basic-v8-latin-regular.woff2") format("woff2"),url("/assets/fonts/gentium-book-basic-v8-latin-regular.woff") format("woff")
 }
 
 @font-face {
     font-family: "Gentium Book Basic";
     font-style: italic;
     font-weight: 400;
-    src: local("Gentium Book Basic Italic"),url("/assets/fonts/gentium/gentium-book-basic-v8-latin-italic.woff2") format("woff2"),url("/assets/fonts/gentium/gentium-book-basic-v8-latin-italic.woff") format("woff")
+    src: local("Gentium Book Basic Italic"),url("/assets/fonts/gentium-book-basic-v8-latin-italic.woff2") format("woff2"),url("/assets/fonts/gentium-book-basic-v8-latin-italic.woff") format("woff")
 }
 
 @font-face {
     font-family: "Gentium Book Basic";
     font-style: normal;
     font-weight: 700;
-    src: local("Gentium Book Basic Bold"),url("/assets/fonts/gentium/gentium-book-basic-v8-latin-700.woff2") format("woff2"),url("/assets/fonts/gentium/gentium-book-basic-v8-latin-700.woff") format("woff")
+    src: local("Gentium Book Basic Bold"),url("/assets/fonts/gentium-book-basic-v8-latin-700.woff2") format("woff2"),url("/assets/fonts/gentium-book-basic-v8-latin-700.woff") format("woff")
 }
 
 @font-face {
     font-family: "Open Sans Condensed";
     font-style: normal;
     font-weight: 300;
-    src: local("Open Sans Condensed Light"),url("/assets/fonts/open-sans-condensed/open-sans-condensed-v12-latin-300.woff2") format("woff2"),url("/assets/fonts/open-sans-condensed/open-sans-condensed-v12-latin-300.woff") format("woff")
+    src: local("Open Sans Condensed Light"),url("/assets/fonts/open-sans-condensed-v12-latin-300.woff2") format("woff2"),url("/assets/fonts/open-sans-condensed-v12-latin-300.woff") format("woff")
 }
 
 @font-face {
     font-family: "Open Sans Condensed";
     font-style: normal;
     font-weight: 700;
-    src: local("Open Sans Condensed Bold"),url("/assets/fonts/open-sans-condensed/open-sans-condensed-v12-latin-700.woff2") format("woff2"),url("/assets/fonts/open-sans-condensed/open-sans-condensed-v12-latin-700.woff") format("woff")
+    src: local("Open Sans Condensed Bold"),url("/assets/fonts/open-sans-condensed-v12-latin-700.woff2") format("woff2"),url("/assets/fonts/open-sans-condensed-v12-latin-700.woff") format("woff")
 }
 
 html {
@@ -89,7 +88,8 @@ h1 {
 h2 {
     font-size: 2.2rem;
     line-height: 2.55rem;
-    margin-top: 2.55rem
+    margin-top: 2.55rem;
+    margin-bottom: 1.74rem;
 }
 
 h3 {
@@ -127,10 +127,6 @@ code {
     font-size: 1.3rem
 }
 
-.hug {
-    margin-top: 0
-}
-
 *,*:before,*:after {
     padding: 0;
     margin: 0;
@@ -138,7 +134,7 @@ code {
 }
 
 body {
-    background: #fcfcfc;
+    background: #f9f9f9;
     color: #5a5a5a;
     position: relative;
     max-width: 850px;
@@ -243,8 +239,7 @@ code {
 }
 
 .site-title a:hover {
-    color: white;
-    background: #d9534f
+    color: #d9534f;
 }
 
 @media all and (max-width: 600px) {
@@ -369,4 +364,14 @@ div.album img {
     display: block;
     max-width: 100%;
     text-align: left;
+}
+
+/* lazy loading images */
+img.lazy {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+img.lazy[data-src] {
+    opacity: 0;
 }
