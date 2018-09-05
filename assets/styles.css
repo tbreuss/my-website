@@ -123,6 +123,11 @@ code {
     vertical-align: bottom
 }
 
+b {
+    color: #696969;
+    font-weight: bold;
+}
+
 .lead {
     font-size: 1.3rem
 }
@@ -317,6 +322,10 @@ code {
     vertical-align: baseline;
     text-transform: uppercase;
     font-size: 0.8rem
+}
+
+a.shy {
+    color: #5a5a5a;
 }
 
 a.cache-warning {
