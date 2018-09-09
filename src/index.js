@@ -1,5 +1,6 @@
 import m from "mithril";
 import Adresse from "./views/Adresse";
+import Error from "./views/Error";
 import Home from "./views/Home";
 import Unterwegs from "./views/Unterwegs";
 import Musik from "./views/Musik";
@@ -37,6 +38,12 @@ m.route(document.body, "/", {
         render: function () {
             document.title = PAGE_TITLE;
             return m(Layout, m(Home))
+        }
+    },
+    "/:404...": {
+        render: function () {
+            document.title = "Fehler // " + PAGE_TITLE;
+            return m(Layout, m(Error))
         }
     }
 });
