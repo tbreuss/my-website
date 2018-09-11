@@ -11,10 +11,10 @@ export default {
                 ]),
                 m("nav.site-navigation", [
                     m("ul", [
-                        m("li", [
+                        m("li.site-navigation__home", [
                             m("a[href='/']", {oncreate: m.route.link}, "Home"),
                         ]),
-                        m("li", [
+                        m("li.site-navigation__portfolio", [
                             m("a[href='/portfolio']", {oncreate: m.route.link}, "Portfolio")
                         ])
                     ])
