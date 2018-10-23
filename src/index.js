@@ -54,8 +54,7 @@ m.route(document.body, "/", {
     }
 });
 
-function setActiveMenuItem(selector = '')
-{
+function setActiveMenuItem(selector = '') {
     let els = document.querySelectorAll('.site-navigation a');
     els.forEach((el) => {
         el.classList.remove('active');
