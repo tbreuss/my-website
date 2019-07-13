@@ -22,7 +22,7 @@ export default {
             ]),
             m(".main", vnode.children),
             m(".site-footer", [
-                m("p.hug", "© 2018 Thomas Breuss")
+                m("p.hug", "© 2019 Thomas Breuss")
             ])
         ])
     }
