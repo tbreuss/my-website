@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Cleanup Directory
-      run: rm -rf ./tutorial
+      run: rm -rf ./tutorial && rm -rf ./git && rm -rf ./github && rm ./.gitignore && rm -rf ./src
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@master
       env:
