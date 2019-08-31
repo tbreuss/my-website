@@ -1,17 +1,17 @@
-name: CI
+on: push
 
-on: [push]
+name: Publish Website
 
 jobs:
-  build:
-
+  fTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - uses: actions/checkout@master
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@master
+      env:
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        
