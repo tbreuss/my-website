@@ -11,7 +11,7 @@ jobs:
       with:
         fetch-depth: 2      
     - name: Cleanup Directory
-      run: rm -rf tutorial .git .github src && rm .gitignore package.json README.md
+      run: rm -rf tutorial .github src && rm .gitignore package.json README.md
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.0.0
       with:
