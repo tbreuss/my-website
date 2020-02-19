@@ -3,7 +3,7 @@ on: push
 name: Publish Website
 
 jobs:
-  fTP-Deploy-Action:
+  FTP-Deploy-Action:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
@@ -11,9 +11,9 @@ jobs:
     - name: Cleanup Directory
       run: rm -rf tutorial .git .github src && rm .gitignore package.json README.md
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@master
+      uses: SamKirkland/FTP-Deploy-Action@3.0.0
       env:
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        ftp-server: ${{ secrets.FTP_SERVER }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
         
