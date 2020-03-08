@@ -16,6 +16,9 @@ export default {
                         ]),
                         m("li.site-navigation__portfolio", [
                             m("a[href='/portfolio']", {oncreate: m.route.link}, "Portfolio")
+                        ]),
+                        m("li.site-navigation__artikel", [
+                            m("a[href='/artikel']", {oncreate: m.route.link}, "Artikel")
                         ])
                     ])
                 ]),

@@ -14,6 +14,10 @@ header('Content-Type: application/json');
 echo json_encode($all);
 exit;
 
+/**
+ * @return array
+ * @throws Exception
+ */
 function find_all()
 {
     $sql = "
@@ -35,7 +39,10 @@ function find_all()
 /**
  * @param integer $maxWidth
  * @param integer $maxHeight
+ * @param integer $id
+ * @param string $extension
  * @return string
+ * @throws Exception
  */
 function createThumbnail($maxWidth, $maxHeight, $id, $extension)
 {
@@ -43,7 +50,8 @@ function createThumbnail($maxWidth, $maxHeight, $id, $extension)
     $thumbnail = sprintf('%s/assets/media/thumbs/%d.%s', dirname(__DIR__), $id, $extension);
 
     if(!is_file($original)) {
-        throw new \Exception("Photo \"${original}\" doesn't exist");
+        // do nothing
+        return;
     }
 
     if(!is_file($thumbnail) || filemtime($thumbnail)<(time()-(60*60*24*7*52))) { //86400 = 1 Woche

@@ -1,5 +1,7 @@
 import m from "mithril";
 import Adresse from "./views/Adresse";
+import Artikel from "./views/Artikel";
+import ArtikelDetail from "./views/ArtikelDetail";
 import Error from "./views/Error";
 import Home from "./views/Home";
 import Unterwegs from "./views/Unterwegs";
@@ -36,6 +38,20 @@ m.route(document.body, "/", {
             document.title = "Adresse // " + PAGE_TITLE;
             setActiveMenuItem();
             return m(Layout, m(Adresse))
+        }
+    },
+    "/artikel/:id": {
+        view: function(vnode) {
+            vnode.attrs.pageTitle = PAGE_TITLE;
+            setActiveMenuItem('.site-navigation__artikel a');
+            return m(Layout, m(ArtikelDetail, vnode.attrs))
+        }
+    },
+    "/artikel": {
+        render: function () {
+            document.title = "Artikel // " + PAGE_TITLE;
+            setActiveMenuItem('.site-navigation__artikel a');
+            return m(Layout, m(Artikel))
         }
     },
     "/": {
