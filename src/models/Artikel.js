@@ -14,6 +14,7 @@ let Artikel = {
     },
     current: {},
     load: function (slug) {
+        Artikel.current = {};
         return m.request({
             method: "GET",
             url: "/api/artikel.php?slug=" + slug,
