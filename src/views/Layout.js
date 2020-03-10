@@ -5,20 +5,18 @@ export default {
         return m(".app", [
             m("header.site-header", [
                 m("h1.site-title", [
-                    m("a[href='/']", {oncreate: m.route.link}, [
-                        m("span.title-text", "Thomas Breuss")
-                    ])
+                    m(m.route.Link, {href: "/"}, m("span.title-text", "Thomas Breuss"))
                 ]),
                 m("nav.site-navigation", [
                     m("ul", [
                         m("li.site-navigation__home", [
-                            m("a[href='/']", {oncreate: m.route.link}, "Home"),
+                            m(m.route.Link, {href: "/"}, "Home")
                         ]),
                         m("li.site-navigation__portfolio", [
-                            m("a[href='/portfolio']", {oncreate: m.route.link}, "Portfolio")
+                            m(m.route.Link, {href: "/portfolio"}, "Portfolio")
                         ]),
                         m("li.site-navigation__artikel", [
-                            m("a[href='/artikel']", {oncreate: m.route.link}, "Artikel")
+                            m(m.route.Link, {href: "/artikel"}, "Artikel")
                         ])
                     ])
                 ]),

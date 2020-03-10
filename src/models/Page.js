@@ -5,13 +5,10 @@ let Page = {
     load: function (id) {
         return m.request({
             method: "GET",
-            url: "/api/" + id + '.html',
-            deserialize: function (value) {
-                return value
-            }
+            url: "/api/page.php?id=" + id
         })
             .then(function (result) {
-                Page.html = result
+                Page.html = result.html
             })
     }
 };

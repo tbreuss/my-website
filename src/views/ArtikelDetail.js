@@ -2,10 +2,7 @@ import m from "mithril";
 import Artikel from "../models/Artikel";
 
 export default {
-    pageTitle:"",
-    oninit: function (vnode) {
-        Artikel.load(vnode.attrs.id);
-    },
+    pageTitle: "",
     oncreate: function (vnode) {
         this.pageTitle = vnode.attrs.pageTitle;
     },
@@ -15,7 +12,7 @@ export default {
         return m(".articles", [
             m("h2", article.title),
             m("div", [
-                article.updated_at ? "Letzte Änderung: ": "Erstellt am: ",
+                article.updated_at ? "Letzte Änderung: " : "Erstellt am: ",
                 article.updated_at ? article.updated_at : article.created_at,
                 " • ",
                 "Lesezeit: ",
@@ -24,7 +21,7 @@ export default {
             ]),
             m("div", m.trust(article.content)),
             m("p", [
-                m("a[href='/artikel']", {oncreate: m.route.link}, "Alle Artikel anzeigen")
+                m(m.route.Link, {href: "/artikel"}, "Alle Artikel anzeigen"),
             ])
         ])
     },

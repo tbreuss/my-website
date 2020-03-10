@@ -10,7 +10,7 @@ export default {
                 m("li", "Nutze die Zurück-Taste des Browsers"),
                 m("li", [
                     "Navigiere zurück zur ",
-                    m("a[href='/']", {oncreate: m.route.link}, "Startseite")
+                    m(m.route.Link, {href: "/"}, "Startseite"),
                 ])
             ])
         ]);

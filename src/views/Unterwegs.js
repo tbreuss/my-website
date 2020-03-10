@@ -18,9 +18,6 @@ window.addEventListener('load', lazyload);
 window.addEventListener('resize', lazyload);
 
 export default {
-    oninit: function () {
-        Photo.loadList();
-    },
     onupdate: function () {
         lazyload();
     },
