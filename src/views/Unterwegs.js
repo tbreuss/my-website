@@ -18,6 +18,9 @@ window.addEventListener('load', lazyload);
 window.addEventListener('resize', lazyload);
 
 export default {
+    oncreate: function() {
+        lazyload();
+    },
     onupdate: function () {
         lazyload();
     },
