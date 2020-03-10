@@ -8,6 +8,7 @@ $config = require 'config/main.php';
 DB::init($config['db']);
 
 $slug = filter_input(INPUT_GET, 'slug', FILTER_SANITIZE_STRING);
+$slug = preg_replace('/[^a-z0-9_-]/', '', $slug);
 
 if (empty($slug)) {
     $data = find_all();
