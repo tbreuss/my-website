@@ -29,9 +29,12 @@ export default {
             m("p.lead", "Zuletzt unterwegs"),
             m(".img", {style: {marginTop: "0.85rem"}}, [
                 m("img", {
-                    "data-src": "/assets/media/thumbs/" + photo.id + "." + photo.extension,
-                    class: "laxzy"
-                }, photo.id),
+                    alt: photo.name,
+                    src: "/assets/media/thumbs/" + photo.id + "." + photo.extension,
+                    style: {
+                        maxWidth: "100%"
+                    }
+                }),
                 m("caption", photo.date + " – " + photo.name)
             ])
         ];
