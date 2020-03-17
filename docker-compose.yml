@@ -9,8 +9,8 @@ services:
     labels:
       - "traefik.http.routers.my-website.rule=Host(`tebe.test`)"
     networks:
-    - traefik_default
+      - local-dev
 
 networks:
-  traefik_default:
+  local-dev:
     external: true
