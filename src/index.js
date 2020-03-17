@@ -77,7 +77,11 @@ m.route(document.body, "/", {
     },
     "/": {
         onmatch: function() {
-            return Page.load("home");
+            return Promise.all([
+                Page.load("home"),
+                Artikel.loadList(),
+                Photo.loadLatest()
+            ]);
         },
         render: function () {
             document.title = PAGE_TITLE;
