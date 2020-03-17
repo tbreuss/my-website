@@ -1,6 +1,7 @@
 <?php
 
 require_once './db.php';
+
 $config = require 'config/main.php';
 
 DB::init($config['db']);

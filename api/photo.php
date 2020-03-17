@@ -3,9 +3,8 @@
 require_once './db.php';
 require_once('./3rdparty/phpthumb/ThumbLib.inc.php');
 
-DB::init();
-
 $config = require 'config/main.php';
+
 DB::init($config['db']);
 
 $all = find_all();

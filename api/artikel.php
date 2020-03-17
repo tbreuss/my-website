@@ -2,9 +2,8 @@
 
 require_once './db.php';
 
-DB::init();
-
 $config = require 'config/main.php';
+
 DB::init($config['db']);
 
 $slug = filter_input(INPUT_GET, 'slug', FILTER_SANITIZE_STRING);
