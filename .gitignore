@@ -3,5 +3,6 @@ backend/config/main.php
 node_modules
 vendor
 web/assets/media
+web/bin/app.js
 composer.lock
 package-lock.json
