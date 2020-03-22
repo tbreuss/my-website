@@ -1,115 +1,98 @@
 import m from "mithril";
-import Adresse from "./views/Adresse";
-import ArtikelList from "./views/ArtikelList";
-import ArtikelDetail from "./views/ArtikelDetail";
-import Error from "./views/Error";
-import Home from "./views/Home";
-import Unterwegs from "./views/Unterwegs";
-import Musik from "./views/Musik";
-import Portfolio from "./views/Portfolio";
-import Layout from "./views/Layout";
-import Artikel from "./models/Artikel";
-import Page from "./models/Page";
-import Photo from "./models/Photo";
-
-const PAGE_TITLE = "Thomas Breuss";
+import AddressView from "./views/AddressView";
+import ArticleListView from "./views/ArticleListView";
+import ArticleDetailView from "./views/ArticleDetailView";
+import ErrorView from "./views/ErrorView";
+import HomeView from "./views/HomeHome";
+import OnTheMoveView from "./views/OnTheMoveView";
+import MusicView from "./views/MusicView";
+import PortfolioView from "./views/PortfolioView";
+import LayoutView from "./views/LayoutView";
+import ArticleModel from "./models/ArticleModel";
+import PageModel from "./models/PageModel";
+import PhotoModel from "./models/PhotoModel";
+import HtmlHelper from "./helpers/HtmlHelper";
 
 m.route(document.body, "/", {
     "/portfolio": {
         onmatch: function() {
-            return Page.load("portfolio");
+            return PageModel.load("portfolio");
         },
         render: function () {
-            document.title = "Portfolio // " + PAGE_TITLE;
-            setActiveMenuItem('.site-navigation__portfolio a');
-            return m(Layout, m(Portfolio))
+            HtmlHelper.setActiveMenuItem("portfolio");
+            HtmlHelper.setPageTitle("Portfolio");
+            return m(LayoutView, m(PortfolioView))
         }
     },
     "/musik": {
         onmatch: function() {
-            return Page.load("musik");
+            return PageModel.load("musik");
         },
         render: function () {
-            document.title = "Musik // " + PAGE_TITLE;
-            setActiveMenuItem();
-            return m(Layout, m(Musik))
+            HtmlHelper.setActiveMenuItem();
+            HtmlHelper.setPageTitle("Musik");
+            return m(LayoutView, m(MusicView))
         }
     },
     "/unterwegs": {
         onmatch: function() {
-            return Photo.loadList();
+            return PhotoModel.loadList();
         },
         render: function () {
-            document.title = "Unterwegs // " + PAGE_TITLE;
-            setActiveMenuItem();
-            return m(Layout, m(Unterwegs))
+            HtmlHelper.setActiveMenuItem();
+            HtmlHelper.setPageTitle("Unterwegs");
+            return m(LayoutView, m(OnTheMoveView))
         }
     },
     "/adresse": {
         onmatch: function() {
-            return Page.load("adresse");
+            return PageModel.load("adresse");
         },
         render: function () {
-            document.title = "Adresse // " + PAGE_TITLE;
-            setActiveMenuItem();
-            return m(Layout, m(Adresse))
+            HtmlHelper.setActiveMenuItem();
+            HtmlHelper.setPageTitle("Adresse");
+            return m(LayoutView, m(AddressView))
         }
     },
     "/artikel/:slug": {
         onmatch: function(attrs) {
-            return Artikel.load(attrs.slug);
+            return ArticleModel.load(attrs.slug);
         },
         render: function(vnode) {
-            vnode.attrs.pageTitle = PAGE_TITLE;
-            setActiveMenuItem('.site-navigation__artikel a');
-            return m(Layout, m(ArtikelDetail, vnode.attrs))
+            HtmlHelper.setActiveMenuItem("artikel");
+            HtmlHelper.setPageTitle(ArticleModel.current.title + " // Artikel");
+            return m(LayoutView, m(ArticleDetailView, vnode.attrs))
         }
     },
     "/artikel": {
         onmatch: function() {
-            return Artikel.loadList();
+            return ArticleModel.loadList();
         },
         render: function () {
-            document.title = "Artikel // " + PAGE_TITLE;
-            setActiveMenuItem('.site-navigation__artikel a');
-            return m(Layout, m(ArtikelList))
+            HtmlHelper.setActiveMenuItem("artikel");
+            HtmlHelper.setPageTitle("Artikel");
+            return m(LayoutView, m(ArticleListView))
         }
     },
     "/": {
         onmatch: function() {
             return Promise.all([
-                Page.load("home"),
-                Artikel.loadList(),
-                Photo.loadLatest()
+                PageModel.load("home"),
+                ArticleModel.loadList(),
+                PhotoModel.loadLatest()
             ]);
         },
         render: function () {
-            document.title = PAGE_TITLE;
-            setActiveMenuItem('.site-navigation__home a');
-            return m(Layout, m(Home))
+            HtmlHelper.setActiveMenuItem("home");
+            HtmlHelper.setPageTitle();
+            return m(LayoutView, m(HomeView))
         }
     },
     "/:404...": {
         render: function () {
-            document.title = "Fehler // " + PAGE_TITLE;
-            setActiveMenuItem();
-            return m(Layout, m(Error))
+            HtmlHelper.setActiveMenuItem();
+            HtmlHelper.setPageTitle("Fehler");
+            return m(LayoutView, m(ErrorView))
         }
     }
 });
-
-function setActiveMenuItem(selector = '') {
-    let els = document.querySelectorAll('.site-navigation a');
-    els.forEach((el) => {
-        el.classList.remove('active');
-    });
-
-    if (selector === '') {
-        return;
-    }
-
-    let el = document.querySelector(selector);
-    if (el) {
-        el.classList.add('active');
-    }
-}

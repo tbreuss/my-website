@@ -1,6 +1,6 @@
 import m from "mithril";
 
-let Page = {
+let PageModel = {
     html: "",
     load: function (id) {
         return m.request({
@@ -8,9 +8,9 @@ let Page = {
             url: "/api/page.php?id=" + id
         })
             .then(function (result) {
-                Page.html = result.html
+                PageModel.html = result.html
             })
     }
 };
 
-export default Page;
+export default PageModel;

@@ -1,4 +1,4 @@
-// src/views/Layout.js
+// src/views/LayoutView.js
 import m from "mithril"
 
 export default {

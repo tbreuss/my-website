@@ -1,14 +1,12 @@
 import m from "mithril";
-import Artikel from "../models/Artikel";
+import ArticleModel from "../models/ArticleModel";
 
 export default {
-    pageTitle: "",
-    oncreate: function (vnode) {
-        this.pageTitle = vnode.attrs.pageTitle;
-    },
     view: function () {
-        var article = Artikel.current;
-        this.setPageTitle(article.title);
+        var article = ArticleModel.current;
+        if (article === false) {
+            throw new Error("Artikel nicht gefunen");
+        }
         return m(".articles", [
             m("h2", article.title),
             m("div", [
@@ -24,8 +22,5 @@ export default {
                 m(m.route.Link, {href: "/artikel"}, "Alle Artikel anzeigen"),
             ])
         ])
-    },
-    setPageTitle: function (articleName) {
-        document.title = articleName + " // Artikel // " + this.pageTitle;
     }
 }

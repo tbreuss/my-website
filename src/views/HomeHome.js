@@ -1,11 +1,11 @@
 import m from "mithril";
-import Artikel from "../models/Artikel";
-import Page from "../models/Page";
-import Photo from "../models/Photo";
+import ArticleModel from "../models/ArticleModel";
+import PageModel from "../models/PageModel";
+import PhotoModel from "../models/PhotoModel";
 
 export default {
     view: function () {
-        let html = Page.html;
+        let html = PageModel.html;
         return [
             m.trust(html),
             this.photo(),
@@ -13,7 +13,7 @@ export default {
         ]
     },
     article: function () {
-        var article = Artikel.list[0];
+        var article = ArticleModel.list[0];
         return [
             m("p.lead", "Letzter Artikel"),
             m("p", {style: {marginTop: "0.85rem"}}, [
@@ -24,7 +24,7 @@ export default {
         ]
     },
     photo: function () {
-        var photo = Photo.latest;
+        var photo = PhotoModel.latest;
         return [
             m("p.lead", "Zuletzt unterwegs"),
             m(".img", {style: {marginTop: "0.85rem"}}, [

@@ -1,6 +1,6 @@
 import m from "mithril";
 
-let Photo = {
+let PhotoModel = {
     list: [],
     loadList: function () {
         return m.request({
@@ -9,7 +9,7 @@ let Photo = {
             withCredentials: true,
         })
             .then(function (result) {
-                Photo.list = result
+                PhotoModel.list = result
             })
     },
     latest: {},
@@ -20,9 +20,9 @@ let Photo = {
             withCredentials: true,
         })
             .then(function (result) {
-                Photo.latest = result
+                PhotoModel.latest = result
             })
     }
 };
 
-export default Photo;
+export default PhotoModel;

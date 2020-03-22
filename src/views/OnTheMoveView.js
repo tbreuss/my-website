@@ -1,5 +1,5 @@
 import m from "mithril";
-import Photo from "../models/Photo";
+import PhotoModel from "../models/PhotoModel";
 
 // see https://stackoverflow.com/questions/2321907/how-do-you-make-images-load-only-when-they-are-in-the-viewport
 let lazyload = function (e) {
@@ -13,9 +13,9 @@ let lazyload = function (e) {
     }
 };
 
-window.addEventListener('scroll', lazyload);
-window.addEventListener('load', lazyload);
-window.addEventListener('resize', lazyload);
+window.addEventListener("scroll", lazyload);
+window.addEventListener("load", lazyload);
+window.addEventListener("resize", lazyload);
 
 export default {
     oncreate: function() {
@@ -27,7 +27,7 @@ export default {
     view: function () {
         return m(".photos", [
             m("h2", "Unterwegs"),
-            Photo.list.map(function (photo) {
+            PhotoModel.list.map(function (photo) {
                 return m(".img", [
                     m("img", {
                         "data-src": "/assets/media/thumbs/" + photo.id + "." + photo.extension,

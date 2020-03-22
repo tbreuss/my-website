@@ -1,6 +1,6 @@
 import m from "mithril";
 
-let Artikel = {
+let ArticleModel = {
     list: [],
     loadList: function () {
         return m.request({
@@ -9,7 +9,7 @@ let Artikel = {
             withCredentials: true,
         })
             .then(function (result) {
-                Artikel.list = result
+                ArticleModel.list = result
             })
     },
     current: {},
@@ -20,9 +20,9 @@ let Artikel = {
             withCredentials: true,
         })
             .then(function (result) {
-                Artikel.current = result
+                ArticleModel.current = result
             })
     }
 };
 
-export default Artikel;
+export default ArticleModel;
