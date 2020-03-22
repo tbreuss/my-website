@@ -1,5 +1,7 @@
 .idea
-api/config/main.php
-assets/media
+backend/config/main.php
 node_modules
+vendor
+web/assets/media
+composer.lock
 package-lock.json

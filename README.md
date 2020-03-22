@@ -1,11 +1,19 @@
 # My Website
 
-Depends on <https://github.com/tbreuss/local-dev>
+Depends on: 
+- <https://mithril.js.org>
+- <http://flightphp.com>
+- <https://github.com/tbreuss/local-dev>
 
-Inspired by <https://bradleyrosenfeld.com>
-
-Using <https://mithril.js.org>
+Inspired by:
+- <https://bradleyrosenfeld.com>
 
 ## Run
+    
+JS
 
-    docker-compose up
+    npm run start
+
+PHP
+    
+    php -S localhost:9999 -t web/

@@ -1,28 +1,28 @@
 import m from "mithril";
 
-let PhotoModel = {
+let ArticleModel = {
     list: [],
     loadList: function () {
         return m.request({
             method: "GET",
-            url: "/api/photo.php",
+            url: "/api/article",
             withCredentials: true,
         })
             .then(function (result) {
-                PhotoModel.list = result
+                ArticleModel.list = result
             })
     },
-    latest: {},
-    loadLatest: function () {
+    current: {},
+    load: function (slug) {
         return m.request({
             method: "GET",
-            url: "/api/photo_latest.php",
+            url: "/api/article/" + slug,
             withCredentials: true,
         })
             .then(function (result) {
-                PhotoModel.latest = result
+                ArticleModel.current = result
             })
     }
 };
 
-export default PhotoModel;
+export default ArticleModel;

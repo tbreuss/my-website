@@ -4,8 +4,8 @@
   "description": "Inspired by https://bradleyrosenfeld.com",
   "main": "index.js",
   "scripts": {
-    "start": "webpack src/index.js --output bin/app.js -d --watch",
-    "build": "webpack src/index.js --output bin/app.js -p",
+    "start": "webpack frontend/index.js --output web/bin/app.js -d --watch",
+    "build": "webpack frontend/index.js --output web/bin/app.js -p",
     "test": "echo \"Error: no test specified\" && exit 1",
     "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached"
   },

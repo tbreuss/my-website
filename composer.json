@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "app\\": "./backend/"
+        },
+        "classmap": [
+            "backend/3rdparty/phpthumb"
+        ]
+    },
+    "require": {
+        "mikecao/flight": "^1.3"
+    }
+}

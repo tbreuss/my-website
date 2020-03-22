@@ -1,5 +1,10 @@
 <?php
 
+namespace app\components;
+
+use PDO;
+use PDOStatement;
+
 class DB
 {
     protected static $options = [];

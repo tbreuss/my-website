@@ -5,10 +5,10 @@ let PageModel = {
     load: function (id) {
         return m.request({
             method: "GET",
-            url: "/api/page.php?id=" + id
+            url: "/api/page/" + id
         })
             .then(function (result) {
-                PageModel.html = result.html
+                PageModel.html = result.content
             })
     }
 };

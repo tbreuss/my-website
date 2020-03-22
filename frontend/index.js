@@ -3,7 +3,7 @@ import AddressView from "./views/AddressView";
 import ArticleListView from "./views/ArticleListView";
 import ArticleDetailView from "./views/ArticleDetailView";
 import ErrorView from "./views/ErrorView";
-import HomeView from "./views/HomeHome";
+import HomeView from "./views/HomeView";
 import OnTheMoveView from "./views/OnTheMoveView";
 import MusicView from "./views/MusicView";
 import PortfolioView from "./views/PortfolioView";

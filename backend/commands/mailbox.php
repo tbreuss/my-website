@@ -1,9 +1,10 @@
 <?php
 
-require_once './db.php';
+use app\components\DB;
 
-$config = require 'config/main.php';
+require dirname(__DIR__, 2) . '/vendor/autoload.php';
 
+$config = require dirname(__DIR__, 2) . '/backend/config/main.php';
 DB::init($config['db']);
 
 function create_part_array($structure, $prefix = "")
@@ -134,7 +135,7 @@ function main($config)
                 $id = DB::lastInsertId();
 
                 if ($id > 0) {
-                    $filepath = sprintf('../assets/media/%s.%s', $id, $extension);
+                    $filepath = sprintf('%s/web/assets/media/%s.%s', dirname(__DIR__, 2), $id, $extension);
                     if (file_put_contents($filepath, $encoded) === false) {
                         throw new \Exception(sprintf('File %s could not be written', $filepath));
                     }
