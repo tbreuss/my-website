@@ -69,7 +69,6 @@ function main($config)
 
         #echo"<pre>";print_r($parts);echo"</pre>";
 
-        $attachments = array();
         foreach ($parts AS $part) {
 
             if (in_array($part['part_object']->subtype, array('JPG', 'JPEG', 'PNG'))) {
@@ -137,7 +136,7 @@ function main($config)
                 if ($id > 0) {
                     $filepath = sprintf('%s/web/assets/media/%s.%s', dirname(__DIR__, 2), $id, $extension);
                     if (file_put_contents($filepath, $encoded) === false) {
-                        throw new \Exception(sprintf('File %s could not be written', $filepath));
+                        throw new Exception(sprintf('File %s could not be written', $filepath));
                     }
                 }
             }

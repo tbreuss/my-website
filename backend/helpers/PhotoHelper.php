@@ -3,35 +3,39 @@
 namespace app\helpers;
 
 use PhpThumbFactory;
+use Throwable;
 
 class PhotoHelper
 {
     /**
-     * @param integer $maxWidth
-     * @param integer $maxHeight
-     * @param integer $id
+     * @param int $maxWidth
+     * @param int $maxHeight
+     * @param int $id
      * @param string $extension
-     * @return string
-     * @throws Exception
-     * @throws \Exception
+     * @return bool
      */
-    public static function createThumbnail($maxWidth, $maxHeight, $id, $extension)
+    public static function createThumbnail($maxWidth, $maxHeight, $id, $extension): bool
     {
         $original = sprintf('%s/web/assets/media/%d.%s', dirname(__DIR__, 2), $id, $extension);
         $thumbnail = sprintf('%s/web/assets/media/thumbs/%d.%s', dirname(__DIR__, 2), $id, $extension);
 
         if (!is_file($original)) {
             // do nothing
-            return;
+            return false;
         }
 
         if (!is_file($thumbnail) || filemtime($thumbnail) < (time() - (60 * 60 * 24 * 7 * 52))) { //86400 = 1 Woche
             $options = array('resizeUp' => false, 'jpegQuality' => 90);
-            $phpThumb = PhpThumbFactory::create($original, $options);
-            $phpThumb->resize($maxWidth, $maxHeight);
-            $phpThumb->save($thumbnail);
+            try {
+                $phpThumb = PhpThumbFactory::create($original, $options);
+                $phpThumb->resize($maxWidth, $maxHeight);
+                $phpThumb->save($thumbnail);
+                return true;
+            } catch (Throwable $t) {
+                return false;
+            }
         }
-
+        return false;
     }
 
 }

@@ -48,7 +48,7 @@ class DB
                 self::$options['dbname'],
                 self::$options['charset']
             );
-            self::$instance = new \PDO($dsn, self::$options['username'], self::$options['passwd'], self::$options['pdo']);
+            self::$instance = new PDO($dsn, self::$options['username'], self::$options['passwd'], self::$options['pdo']);
         }
         return self::$instance;
     }
