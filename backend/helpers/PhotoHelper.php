@@ -2,7 +2,7 @@
 
 namespace app\helpers;
 
-use PhpThumbFactory;
+use Gumlet\ImageResize;
 use Throwable;
 
 class PhotoHelper
@@ -25,11 +25,10 @@ class PhotoHelper
         }
 
         if (!is_file($thumbnail) || filemtime($thumbnail) < (time() - (60 * 60 * 24 * 7 * 52))) { //86400 = 1 Woche
-            $options = array('resizeUp' => false, 'jpegQuality' => 90);
             try {
-                $phpThumb = PhpThumbFactory::create($original, $options);
-                $phpThumb->resize($maxWidth, $maxHeight);
-                $phpThumb->save($thumbnail);
+                $image = new ImageResize($original);
+                $image->resizeToBestFit($maxWidth, $maxHeight);
+                $image->save($thumbnail, null, 90);
                 return true;
             } catch (Throwable $t) {
                 return false;
