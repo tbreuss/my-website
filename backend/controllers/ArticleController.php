@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\helpers\DateHelper;
 use app\models\ArticleModel;
 use Flight;
+use Parsedown;
 
 class ArticleController
 {
@@ -18,6 +19,9 @@ class ArticleController
     {
         $detail = ArticleModel::fetchOne($slug);
         if (!empty($detail)) {
+            if ($detail['format'] === 'markdown') {
+                $detail['content'] = (new Parsedown)->text($detail['content']);
+            }
             $detail['created_at'] = DateHelper::formatMysqlDate($detail['created_at']);
             $detail['updated_at'] = DateHelper::formatMysqlDate($detail['updated_at']);
         }
