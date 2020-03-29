@@ -1,21 +1,26 @@
 <?php
 
-require dirname(__DIR__, 2) . '/vendor/autoload.php';
-
 use app\components\DB;
 use app\controllers\ArticleController;
 use app\controllers\PageController;
 use app\controllers\PhotoController;
 use flight\Engine;
 
+define('ROOT_DIR', dirname(__DIR__, 2));
+
+ini_set('error_log', ROOT_DIR . '/runtime/log/error.log');
+
+// vendor autoload
+require ROOT_DIR . '/vendor/autoload.php';
+
 // init database
-$config = require dirname(__DIR__, 2) . '/backend/config/main.php';
+$config = require ROOT_DIR . '/backend/config/main.php';
 DB::init($config['db']);
 
 $app = new Engine();
 
 #$app->set('flight.base_url', '/api');
-#$app->set('flight.log_errors', true);
+$app->set('flight.log_errors', true);
 
 $app->map('error', function(Throwable $ex) use ($app) {
     $app->response()
@@ -23,7 +28,6 @@ $app->map('error', function(Throwable $ex) use ($app) {
         ->status(500)
         ->write($ex->getTraceAsString())
         ->send();
-    //echo $ex->getTraceAsString();
 });
 
 $app->map('notFound', function() use ($app) {
