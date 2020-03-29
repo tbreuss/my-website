@@ -11,7 +11,6 @@ import LayoutView from "./views/LayoutView";
 import ArticleModel from "./models/ArticleModel";
 import PageModel from "./models/PageModel";
 import PhotoModel from "./models/PhotoModel";
-import HtmlHelper from "./helpers/HtmlHelper";
 
 m.route(document.body, "/", {
     "/portfolio": {
@@ -19,8 +18,6 @@ m.route(document.body, "/", {
             return PageModel.load("portfolio");
         },
         render: function () {
-            HtmlHelper.setActiveMenuItem("portfolio");
-            HtmlHelper.setPageTitle("Portfolio");
             return m(LayoutView, m(PortfolioView))
         }
     },
@@ -29,8 +26,6 @@ m.route(document.body, "/", {
             return PageModel.load("musik");
         },
         render: function () {
-            HtmlHelper.setActiveMenuItem();
-            HtmlHelper.setPageTitle("Musik");
             return m(LayoutView, m(MusicView))
         }
     },
@@ -39,8 +34,6 @@ m.route(document.body, "/", {
             return PhotoModel.loadList();
         },
         render: function () {
-            HtmlHelper.setActiveMenuItem();
-            HtmlHelper.setPageTitle("Unterwegs");
             return m(LayoutView, m(OnTheMoveView))
         }
     },
@@ -49,8 +42,6 @@ m.route(document.body, "/", {
             return PageModel.load("adresse");
         },
         render: function () {
-            HtmlHelper.setActiveMenuItem();
-            HtmlHelper.setPageTitle("Adresse");
             return m(LayoutView, m(AddressView))
         }
     },
@@ -59,8 +50,6 @@ m.route(document.body, "/", {
             return ArticleModel.load(attrs.slug);
         },
         render: function(vnode) {
-            HtmlHelper.setActiveMenuItem("artikel");
-            HtmlHelper.setPageTitle(ArticleModel.current.title + " // Artikel");
             return m(LayoutView, m(ArticleDetailView, vnode.attrs))
         }
     },
@@ -69,8 +58,6 @@ m.route(document.body, "/", {
             return ArticleModel.loadList();
         },
         render: function () {
-            HtmlHelper.setActiveMenuItem("artikel");
-            HtmlHelper.setPageTitle("Artikel");
             return m(LayoutView, m(ArticleListView))
         }
     },
@@ -83,15 +70,11 @@ m.route(document.body, "/", {
             ]);
         },
         render: function () {
-            HtmlHelper.setActiveMenuItem("home");
-            HtmlHelper.setPageTitle();
             return m(LayoutView, m(HomeView))
         }
     },
     "/:404...": {
         render: function () {
-            HtmlHelper.setActiveMenuItem();
-            HtmlHelper.setPageTitle("Fehler");
             return m(LayoutView, m(ErrorView))
         }
     }

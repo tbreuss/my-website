@@ -2,8 +2,14 @@ import m from "mithril";
 import ArticleModel from "../models/ArticleModel";
 import PageModel from "../models/PageModel";
 import PhotoModel from "../models/PhotoModel";
+import HtmlHelper from "../helpers/HtmlHelper";
 
 export default {
+    oncreate: function () {
+        HtmlHelper.setActiveMenuItem("home");
+        HtmlHelper.setPageTitle();
+        HtmlHelper.scrollTop();
+    },
     view: function () {
         let html = PageModel.html;
         return [

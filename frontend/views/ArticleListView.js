@@ -1,7 +1,13 @@
 import m from "mithril";
 import ArticleModel from "../models/ArticleModel";
+import HtmlHelper from "../helpers/HtmlHelper";
 
 export default {
+    oncreate: function () {
+        HtmlHelper.setActiveMenuItem("artikel");
+        HtmlHelper.setPageTitle("Artikel");
+        HtmlHelper.scrollTop();
+    },
     view: function () {
         return m(".articles", [
             m("h2", "Artikel"),

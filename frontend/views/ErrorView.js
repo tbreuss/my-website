@@ -1,6 +1,12 @@
 import m from "mithril";
+import HtmlHelper from "../helpers/HtmlHelper";
 
 export default {
+    oncreate: function () {
+        HtmlHelper.setActiveMenuItem();
+        HtmlHelper.setPageTitle("Fehler");
+        HtmlHelper.scrollTop();
+    },
     view: function () {
         return m("div", [
             m("p.lead", "Uups?!"),

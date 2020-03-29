@@ -22,6 +22,9 @@ let HtmlHelper = {
         } else {
             document.title = title + " // " + PAGE_TITLE;
         }
+    },
+    scrollTop: function () {
+        window.scrollTo(0,0);
     }
 };
 

@@ -1,5 +1,6 @@
 import m from "mithril";
 import PhotoModel from "../models/PhotoModel";
+import HtmlHelper from "../helpers/HtmlHelper";
 
 // see https://stackoverflow.com/questions/2321907/how-do-you-make-images-load-only-when-they-are-in-the-viewport
 let lazyload = function (e) {
@@ -19,6 +20,9 @@ window.addEventListener("resize", lazyload);
 
 export default {
     oncreate: function() {
+        HtmlHelper.setActiveMenuItem();
+        HtmlHelper.setPageTitle("Unterwegs");
+        HtmlHelper.scrollTop();
         lazyload();
     },
     onupdate: function () {
