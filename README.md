@@ -27,4 +27,4 @@ PHP
     
     php -S localhost:9999 -t web/
 
-Please note, that the database is not included.
+Please note, that the database schema and the photos are not included in this repo.
