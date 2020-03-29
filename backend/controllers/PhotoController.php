@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\helpers\PhotoHelper;
+use app\helpers\ImageHelper;
 use app\models\PhotoModel;
 use Flight;
 
@@ -12,7 +12,7 @@ class PhotoController
     {
         $list = PhotoModel::fetchAll();
         foreach ($list as $photo) {
-            PhotoHelper::createThumbnail(800, 800, $photo['id'], $photo['extension']);
+            ImageHelper::createThumbnail(800, 800, $photo['id'], $photo['extension']);
         }
         Flight::json($list);
     }
@@ -21,7 +21,7 @@ class PhotoController
     {
         $latest = PhotoModel::fetchLatest();
         if (!empty($latest)) {
-            PhotoHelper::createThumbnail(800, 800, $latest['id'], $latest['extension']);
+            ImageHelper::createThumbnail(800, 800, $latest['id'], $latest['extension']);
         }
         Flight::json($latest);
     }

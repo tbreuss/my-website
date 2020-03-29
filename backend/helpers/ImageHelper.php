@@ -5,7 +5,7 @@ namespace app\helpers;
 use Gumlet\ImageResize;
 use Throwable;
 
-class PhotoHelper
+class ImageHelper
 {
     /**
      * @param int $maxWidth
