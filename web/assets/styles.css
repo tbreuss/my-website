@@ -198,7 +198,14 @@ code {
     background: #dadada;
     padding: 0 0.2rem;
     border-radius: 0.2rem;
-    font-size: 0.8rem
+    font-size: 0.9rem
+}
+
+pre>code {
+    display: block;
+    padding: 0.5rem;
+    margin-top: 0.75rem;
+    overflow: auto;
 }
 
 .site-header {
