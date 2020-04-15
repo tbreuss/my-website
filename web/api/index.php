@@ -9,6 +9,7 @@ use flight\Engine;
 define('ROOT_DIR', dirname(__DIR__, 2));
 
 ini_set('error_log', ROOT_DIR . '/runtime/log/error.log');
+setlocale (LC_ALL, 'de_DE');
 
 // vendor autoload
 require ROOT_DIR . '/vendor/autoload.php';
