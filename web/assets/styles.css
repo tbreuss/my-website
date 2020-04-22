@@ -368,6 +368,14 @@ div.album img {
     border:1px solid #ddd;
 }
 
+@media all and (max-width: 600px) {
+    div.album {
+        width: 100%;
+        clear: both;
+        float: none;
+    }
+}
+
 .photos img {
     display: inline;
     max-width: 100%;
