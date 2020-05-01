@@ -3,7 +3,7 @@ import PageModel from '../models/PageModel'
 import HtmlHelper from '../helpers/HtmlHelper'
 
 export default {
-  oncreate:() => {
+  oncreate: () => {
     HtmlHelper.setActiveMenuItem('portfolio')
     HtmlHelper.setPageTitle('Portfolio')
     HtmlHelper.scrollTop()

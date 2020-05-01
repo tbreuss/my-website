@@ -11,12 +11,11 @@ export default {
   view: () => m('.articles', [
     m('h2', 'Artikel'),
     m('ul', [
-      ArticleModel.list.map(function (article) {
-        return m('li', m('p', [
+      ArticleModel.list.map((article) => m('li', m('p', [
           m(m.route.Link, {href: '/artikel/' + article.slug}, article.title),
           m('br'),
           article.abstract
         ]))
-      })])
+      )])
   ])
 }

@@ -7,9 +7,7 @@ const ArticleModel = {
     url: '/api/article',
     withCredentials: true,
   })
-    .then(function (result) {
-      ArticleModel.list = result
-    })
+    .then((result) => ArticleModel.list = result)
   ,
   current: {},
   load: (slug) => m.request({
@@ -17,9 +15,7 @@ const ArticleModel = {
     url: '/api/article/' + slug,
     withCredentials: true,
   })
-    .then(function (result) {
-      ArticleModel.current = result
-    })
+    .then((result) => ArticleModel.current = result)
 }
 
 export default ArticleModel
