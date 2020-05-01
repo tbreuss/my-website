@@ -1,6 +1,6 @@
 export const PAGE_TITLE = 'Thomas Breuss'
 
-export const setActiveMenuItem = (name = '') => {
+export const activateMenuItem = (name = '') => {
   const els = document.querySelectorAll('.site-navigation a')
   els.forEach((el) => {
     el.classList.remove('active')
@@ -16,7 +16,7 @@ export const setActiveMenuItem = (name = '') => {
   }
 }
 
-export const setPageTitle = (title = '') => {
+export const updatePageTitle = (title = '') => {
   if (title === '') {
     document.title = PAGE_TITLE
   } else {
@@ -24,12 +24,12 @@ export const setPageTitle = (title = '') => {
   }
 }
 
-export const scrollTop = () => {
+export const scrollToTop = () => {
   window.scrollTo(0, 0)
 }
 
 // see https://stackoverflow.com/questions/2321907/how-do-you-make-images-load-only-when-they-are-in-the-viewport
-export const lazyload = () => {
+export const lazyLoadImages = () => {
   const elements = document.querySelectorAll('img[data-src]')
   for (let i = 0; i < elements.length; i++) {
     const boundingClientRect = elements[i].getBoundingClientRect()

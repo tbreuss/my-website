@@ -1,19 +1,19 @@
 import m from 'mithril'
 import {PhotoModel} from '../models/PhotoModel'
-import {lazyload, scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
+import {lazyLoadImages, scrollToTop, activateMenuItem, updatePageTitle} from '../helpers/HtmlHelper'
 
-window.addEventListener('scroll', lazyload)
-window.addEventListener('load', lazyload)
-window.addEventListener('resize', lazyload)
+window.addEventListener('scroll', lazyLoadImages)
+window.addEventListener('load', lazyLoadImages)
+window.addEventListener('resize', lazyLoadImages)
 
 export const OnTheMoveView = {
   oncreate: () => {
-    setActiveMenuItem()
-    setPageTitle('Unterwegs')
-    scrollTop()
-    lazyload()
+    activateMenuItem()
+    updatePageTitle('Unterwegs')
+    scrollToTop()
+    lazyLoadImages()
   },
-  onupdate: () => lazyload,
+  onupdate: () => lazyLoadImages,
   view: () => m('.photos', [
     m('h2', 'Unterwegs'),
     PhotoModel.list.map((photo) => m('.img', [

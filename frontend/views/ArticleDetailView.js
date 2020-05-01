@@ -1,15 +1,15 @@
 import m from 'mithril'
 import {ArticleModel} from '../models/ArticleModel'
-import {scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
+import {scrollToTop, activateMenuItem, updatePageTitle} from '../helpers/HtmlHelper'
 
 let article = null
 
 export const ArticleDetailView = {
   oninit: () => article = ArticleModel.current,
   oncreate: () => {
-    setActiveMenuItem('artikel')
-    setPageTitle(ArticleModel.current.title + ' // Artikel')
-    scrollTop()
+    activateMenuItem('artikel')
+    updatePageTitle(ArticleModel.current.title + ' // Artikel')
+    scrollToTop()
   },
   view: () => (article)
     ? m('.articles', [
