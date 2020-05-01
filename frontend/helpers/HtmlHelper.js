@@ -1,31 +1,31 @@
-const PAGE_TITLE = "Thomas Breuss";
+const PAGE_TITLE = 'Thomas Breuss'
 
-let HtmlHelper = {
-  setActiveMenuItem: function (name = "") {
-    let els = document.querySelectorAll(".site-navigation a");
+const HtmlHelper = {
+  setActiveMenuItem: function (name = '') {
+    const els = document.querySelectorAll('.site-navigation a')
     els.forEach((el) => {
-      el.classList.remove("active");
-    });
+      el.classList.remove('active')
+    })
 
-    if (name === "") {
-      return;
+    if (name === '') {
+      return
     }
-    let selector = ".site-navigation__" + name + " a";
-    let el = document.querySelector(selector);
+    const selector = '.site-navigation__' + name + ' a'
+    const el = document.querySelector(selector)
     if (el) {
-      el.classList.add("active");
+      el.classList.add('active')
     }
   },
-  setPageTitle: function (title = "") {
-    if (title === "") {
-      document.title = PAGE_TITLE;
+  setPageTitle: function (title = '') {
+    if (title === '') {
+      document.title = PAGE_TITLE
     } else {
-      document.title = title + " // " + PAGE_TITLE;
+      document.title = title + ' // ' + PAGE_TITLE
     }
   },
   scrollTop: function () {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
-};
+}
 
-export default HtmlHelper;
+export default HtmlHelper

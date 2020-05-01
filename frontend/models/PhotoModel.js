@@ -1,11 +1,11 @@
-import m from "mithril";
+import m from 'mithril'
 
-let PhotoModel = {
+const PhotoModel = {
   list: [],
   loadList: function () {
     return m.request({
-      method: "GET",
-      url: "/api/photo",
+      method: 'GET',
+      url: '/api/photo',
       withCredentials: true,
     })
       .then(function (result) {
@@ -15,14 +15,14 @@ let PhotoModel = {
   latest: {},
   loadLatest: function () {
     return m.request({
-      method: "GET",
-      url: "/api/photo/latest",
+      method: 'GET',
+      url: '/api/photo/latest',
       withCredentials: true,
     })
       .then(function (result) {
         PhotoModel.latest = result
       })
   }
-};
+}
 
-export default PhotoModel;
+export default PhotoModel

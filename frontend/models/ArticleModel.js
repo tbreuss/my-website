@@ -1,28 +1,25 @@
-import m from "mithril";
+import m from 'mithril'
 
-let ArticleModel = {
+const ArticleModel = {
   list: [],
-  loadList: function () {
-    return m.request({
-      method: "GET",
-      url: "/api/article",
-      withCredentials: true,
+  loadList: () => m.request({
+    method: 'GET',
+    url: '/api/article',
+    withCredentials: true,
+  })
+    .then(function (result) {
+      ArticleModel.list = result
     })
-      .then(function (result) {
-        ArticleModel.list = result
-      })
-  },
+  ,
   current: {},
-  load: function (slug) {
-    return m.request({
-      method: "GET",
-      url: "/api/article/" + slug,
-      withCredentials: true,
+  load: (slug) => m.request({
+    method: 'GET',
+    url: '/api/article/' + slug,
+    withCredentials: true,
+  })
+    .then(function (result) {
+      ArticleModel.current = result
     })
-      .then(function (result) {
-        ArticleModel.current = result
-      })
-  }
-};
+}
 
-export default ArticleModel;
+export default ArticleModel
