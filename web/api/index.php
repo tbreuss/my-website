@@ -8,6 +8,7 @@ use flight\Engine;
 
 define('ROOT_DIR', dirname(__DIR__, 2));
 
+ini_set('display_errors', 0);
 ini_set('error_log', ROOT_DIR . '/runtime/log/error.log');
 setlocale (LC_ALL, 'de_DE');
 
@@ -27,7 +28,6 @@ $app->map('error', function(Throwable $ex) use ($app) {
     $app->response()
         ->clear()
         ->status(500)
-        ->write($ex->getTraceAsString())
         ->send();
 });
 

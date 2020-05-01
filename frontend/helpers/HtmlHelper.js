@@ -28,6 +28,12 @@ export const scrollToTop = () => {
   window.scrollTo(0, 0)
 }
 
+export const updatePage = (activeMenuItem, pageTitle) => {
+  activateMenuItem(activeMenuItem)
+  updatePageTitle(pageTitle)
+  scrollToTop()
+}
+
 // see https://stackoverflow.com/questions/2321907/how-do-you-make-images-load-only-when-they-are-in-the-viewport
 export const lazyLoadImages = () => {
   const elements = document.querySelectorAll('img[data-src]')

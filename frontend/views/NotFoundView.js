@@ -1,11 +1,9 @@
 import m from 'mithril'
-import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
+import {updatePage} from '../helpers/HtmlHelper'
 
 export const NotFoundView = {
   oncreate: () => {
-    activateMenuItem()
-    updatePageTitle('Seite nicht gefunden')
-    scrollToTop()
+    updatePage('', 'Seite nicht gefunden')
   },
   view: () => m('div', [
     m('p.lead', 'Uups?!'),

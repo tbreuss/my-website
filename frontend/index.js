@@ -11,7 +11,7 @@ import {LayoutView} from './views/LayoutView'
 import {ArticleModel} from './models/ArticleModel'
 import {PageModel} from './models/PageModel'
 import {PhotoModel} from './models/PhotoModel'
-import {NotFoundView} from './views/NotFoundView';
+import {NotFoundView} from './views/NotFoundView'
 import {lastError} from './api'
 
 m.route(document.body, '/', {

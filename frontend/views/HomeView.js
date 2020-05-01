@@ -2,7 +2,7 @@ import m from 'mithril'
 import {ArticleModel} from '../models/ArticleModel'
 import {PageModel} from '../models/PageModel'
 import {PhotoModel} from '../models/PhotoModel'
-import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
+import {updatePage} from '../helpers/HtmlHelper'
 
 const LatestArticle = {
   view: ({attrs: {article}}) => [
@@ -33,9 +33,7 @@ const LatestPhoto = {
 
 export const HomeView = {
   oncreate: () => {
-    activateMenuItem('home')
-    updatePageTitle()
-    scrollToTop()
+    updatePage('home', '')
   },
   view: () => [
     m.trust(PageModel.html),

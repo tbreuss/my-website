@@ -1,12 +1,10 @@
 import m from 'mithril'
 import {PageModel} from '../models/PageModel'
-import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
+import {updatePage} from '../helpers/HtmlHelper'
 
 export const AddressView = {
   oncreate: () => {
-    activateMenuItem()
-    updatePageTitle('Adresse')
-    scrollToTop()
+    updatePage('', 'Adresse')
   },
   view: () => m.trust(PageModel.html)
 }

@@ -1,12 +1,10 @@
 import m from 'mithril'
 import {ArticleModel} from '../models/ArticleModel'
-import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
+import {updatePage} from '../helpers/HtmlHelper'
 
 export const ArticleListView = {
   oncreate: () => {
-    activateMenuItem('artikel')
-    updatePageTitle('Artikel')
-    scrollToTop()
+    updatePage('artikel', 'Artikel')
   },
   view: () => m('.articles', [
     m('h2', 'Artikel'),

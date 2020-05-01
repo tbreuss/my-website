@@ -1,12 +1,10 @@
 import m from 'mithril'
 import {PageModel} from '../models/PageModel'
-import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
+import {updatePage} from '../helpers/HtmlHelper'
 
 export const MusicView = {
   oncreate: () => {
-    activateMenuItem()
-    updatePageTitle('Musik')
-    scrollToTop()
+    updatePage('', 'Musik')
   },
   view: () => m.trust(PageModel.html)
 }
