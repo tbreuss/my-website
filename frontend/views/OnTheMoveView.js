@@ -1,6 +1,6 @@
 import m from 'mithril'
 import {PhotoModel} from '../models/PhotoModel'
-import {lazyLoadImages, scrollToTop, activateMenuItem, updatePageTitle} from '../helpers/HtmlHelper'
+import {activateMenuItem, lazyLoadImages, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
 
 window.addEventListener('scroll', lazyLoadImages)
 window.addEventListener('load', lazyLoadImages)

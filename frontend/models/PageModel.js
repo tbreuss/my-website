@@ -1,10 +1,7 @@
-import m from 'mithril'
+import {api} from '../api'
 
 export const PageModel = {
   html: '',
-  load: (id) => m.request({
-    method: 'GET',
-    url: '/api/page/' + id
-  })
+  load: (id) => api.get('page/' + id)
     .then((result) => PageModel.html = result.content)
 }

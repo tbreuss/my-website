@@ -1,19 +1,11 @@
-import m from 'mithril'
+import {api} from '../api'
 
 export const ArticleModel = {
   list: [],
-  loadList: () => m.request({
-    method: 'GET',
-    url: '/api/article',
-    withCredentials: true,
-  })
+  loadList: () => api.get('article')
     .then((result) => ArticleModel.list = result)
   ,
   current: {},
-  load: (slug) => m.request({
-    method: 'GET',
-    url: '/api/article/' + slug,
-    withCredentials: true,
-  })
+  load: (slug) => api.get('article/' + slug)
     .then((result) => ArticleModel.current = result)
 }

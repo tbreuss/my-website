@@ -11,6 +11,8 @@ import {LayoutView} from './views/LayoutView'
 import {ArticleModel} from './models/ArticleModel'
 import {PageModel} from './models/PageModel'
 import {PhotoModel} from './models/PhotoModel'
+import {NotFoundView} from './views/NotFoundView';
+import {lastError} from './api'
 
 m.route(document.body, '/', {
   '/portfolio': {
@@ -37,6 +39,16 @@ m.route(document.body, '/', {
     onmatch: () => ArticleModel.loadList(),
     render: () => m(LayoutView, m(ArticleListView))
   },
+  '/fehler': {
+    onmatch: () => {
+      if (lastError.code === '') {
+        m.route.set('/')
+      }
+    },
+    render: () => {
+      return m(LayoutView, m(ErrorView))
+    }
+  },
   '/': {
     onmatch: () => Promise.all([
       PageModel.load('home'),
@@ -46,6 +58,6 @@ m.route(document.body, '/', {
     render: () => m(LayoutView, m(HomeView))
   },
   '/:404...': {
-    render: () => m(LayoutView, m(ErrorView))
+    render: () => m(LayoutView, m(NotFoundView))
   }
 })

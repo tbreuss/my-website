@@ -1,6 +1,6 @@
 import m from 'mithril'
 import {ArticleModel} from '../models/ArticleModel'
-import {scrollToTop, activateMenuItem, updatePageTitle} from '../helpers/HtmlHelper'
+import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
 
 export const ArticleListView = {
   oncreate: () => {

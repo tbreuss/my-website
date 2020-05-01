@@ -1,19 +1,11 @@
-import m from 'mithril'
+import {api} from '../api'
 
 export const PhotoModel = {
   list: [],
-  loadList: () => m.request({
-    method: 'GET',
-    url: '/api/photo',
-    withCredentials: true,
-  })
+  loadList: () => api.get('photo')
     .then((result) => PhotoModel.list = result)
   ,
   latest: {},
-  loadLatest: () => m.request({
-    method: 'GET',
-    url: '/api/photo/latest',
-    withCredentials: true,
-  })
+  loadLatest: () => api.get('photo/latest')
     .then((result) => PhotoModel.latest = result)
 }

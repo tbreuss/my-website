@@ -2,7 +2,7 @@ import m from 'mithril'
 import {ArticleModel} from '../models/ArticleModel'
 import {PageModel} from '../models/PageModel'
 import {PhotoModel} from '../models/PhotoModel'
-import {scrollToTop, activateMenuItem, updatePageTitle} from '../helpers/HtmlHelper'
+import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
 
 const LatestArticle = {
   view: ({attrs: {article}}) => [

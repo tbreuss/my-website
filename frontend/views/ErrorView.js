@@ -1,5 +1,6 @@
 import m from 'mithril'
-import {scrollToTop, activateMenuItem, updatePageTitle} from '../helpers/HtmlHelper'
+import {activateMenuItem, scrollToTop, updatePageTitle} from '../helpers/HtmlHelper'
+import {lastError} from '../api';
 
 export const ErrorView = {
   oncreate: () => {
@@ -9,14 +10,11 @@ export const ErrorView = {
   },
   view: () => m('div', [
     m('p.lead', 'Uups?!'),
-    m('p', 'Die aufgerufene Seite gibt es nicht mehr oder hat es nie gegeben.'),
+    m('p', 'Es ist ein Serverfehler (' + lastError.code + ' ' + lastError.response + ') aufgetreten.'),
     m('p', 'Was kannst du tun?'),
     m('ul[style=margin-top:0]', [
-      m('li', 'Nutze die Zurück-Taste des Browsers'),
-      m('li', [
-        'Navigiere zurück zur ',
-        m(m.route.Link, {href: '/'}, 'Startseite'),
-      ])
+      m('li', 'Auf bessere Zeiten warten'),
+      m('li', 'Einen Kaffee trinken ;-)')
     ])
   ])
 }
