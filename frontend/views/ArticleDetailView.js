@@ -1,15 +1,15 @@
 import m from 'mithril'
-import ArticleModel from '../models/ArticleModel'
-import HtmlHelper from '../helpers/HtmlHelper'
+import {ArticleModel} from '../models/ArticleModel'
+import {scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
 
 let article = null
 
-export default {
+export const ArticleDetailView = {
   oninit: () => article = ArticleModel.current,
   oncreate: () => {
-    HtmlHelper.setActiveMenuItem('artikel')
-    HtmlHelper.setPageTitle(ArticleModel.current.title + ' // Artikel')
-    HtmlHelper.scrollTop()
+    setActiveMenuItem('artikel')
+    setPageTitle(ArticleModel.current.title + ' // Artikel')
+    scrollTop()
   },
   view: () => (article)
     ? m('.articles', [

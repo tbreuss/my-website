@@ -1,12 +1,12 @@
 import m from 'mithril'
-import PageModel from '../models/PageModel'
-import HtmlHelper from '../helpers/HtmlHelper'
+import {PageModel} from '../models/PageModel'
+import {scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
 
-export default {
+export const PortfolioView = {
   oncreate: () => {
-    HtmlHelper.setActiveMenuItem('portfolio')
-    HtmlHelper.setPageTitle('Portfolio')
-    HtmlHelper.scrollTop()
+    setActiveMenuItem('portfolio')
+    setPageTitle('Portfolio')
+    scrollTop()
   },
   view: () => m.trust(PageModel.html)
 }

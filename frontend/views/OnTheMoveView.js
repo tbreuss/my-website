@@ -1,28 +1,16 @@
 import m from 'mithril'
-import PhotoModel from '../models/PhotoModel'
-import HtmlHelper from '../helpers/HtmlHelper'
-
-// see https://stackoverflow.com/questions/2321907/how-do-you-make-images-load-only-when-they-are-in-the-viewport
-const lazyload = () => {
-  const elements = document.querySelectorAll('img[data-src]')
-  for (let i = 0; i < elements.length; i++) {
-    const boundingClientRect = elements[i].getBoundingClientRect()
-    if (elements[i].hasAttribute('data-src') && boundingClientRect.top < window.innerHeight) {
-      elements[i].setAttribute('src', elements[i].getAttribute('data-src'))
-      elements[i].removeAttribute('data-src')
-    }
-  }
-}
+import {PhotoModel} from '../models/PhotoModel'
+import {lazyload, scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
 
 window.addEventListener('scroll', lazyload)
 window.addEventListener('load', lazyload)
 window.addEventListener('resize', lazyload)
 
-export default {
+export const OnTheMoveView = {
   oncreate: () => {
-    HtmlHelper.setActiveMenuItem()
-    HtmlHelper.setPageTitle('Unterwegs')
-    HtmlHelper.scrollTop()
+    setActiveMenuItem()
+    setPageTitle('Unterwegs')
+    scrollTop()
     lazyload()
   },
   onupdate: () => lazyload,

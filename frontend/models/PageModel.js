@@ -1,6 +1,6 @@
 import m from 'mithril'
 
-const PageModel = {
+export const PageModel = {
   html: '',
   load: (id) => m.request({
     method: 'GET',
@@ -8,5 +8,3 @@ const PageModel = {
   })
     .then((result) => PageModel.html = result.content)
 }
-
-export default PageModel

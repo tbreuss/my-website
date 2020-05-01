@@ -1,6 +1,6 @@
 import m from 'mithril'
 
-const ArticleModel = {
+export const ArticleModel = {
   list: [],
   loadList: () => m.request({
     method: 'GET',
@@ -17,5 +17,3 @@ const ArticleModel = {
   })
     .then((result) => ArticleModel.current = result)
 }
-
-export default ArticleModel

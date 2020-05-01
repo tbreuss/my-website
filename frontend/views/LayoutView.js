@@ -1,6 +1,6 @@
 import m from 'mithril'
 
-export default {
+export const LayoutView = {
   view: ({children}) => m('.app', [
     m('header.site-header', [
       m('h1.site-title', [

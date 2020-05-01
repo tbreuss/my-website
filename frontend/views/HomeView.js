@@ -1,10 +1,10 @@
 import m from 'mithril'
-import ArticleModel from '../models/ArticleModel'
-import PageModel from '../models/PageModel'
-import PhotoModel from '../models/PhotoModel'
-import HtmlHelper from '../helpers/HtmlHelper'
+import {ArticleModel} from '../models/ArticleModel'
+import {PageModel} from '../models/PageModel'
+import {PhotoModel} from '../models/PhotoModel'
+import {scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
 
-const Article = {
+const LatestArticle = {
   view: ({attrs: {article}}) => [
     m('p.lead', 'Letzter Artikel'),
     m('p', {style: {marginTop: '0.85rem'}}, [
@@ -15,7 +15,7 @@ const Article = {
   ]
 }
 
-const photo = {
+const LatestPhoto = {
   view: ({attrs: {photo}}) => [
     m('p.lead', 'Zuletzt unterwegs'),
     m('.img', {style: {marginTop: '0.85rem'}}, [
@@ -31,15 +31,15 @@ const photo = {
   ]
 }
 
-export default {
+export const HomeView = {
   oncreate: () => {
-    HtmlHelper.setActiveMenuItem('home')
-    HtmlHelper.setPageTitle()
-    HtmlHelper.scrollTop()
+    setActiveMenuItem('home')
+    setPageTitle()
+    scrollTop()
   },
   view: () => [
     m.trust(PageModel.html),
-    m(photo, {photo: PhotoModel.latest}),
-    m(Article, {article: ArticleModel.list[0]})
+    m(LatestPhoto, {photo: PhotoModel.latest}),
+    m(LatestArticle, {article: ArticleModel.list[0]})
   ]
 }

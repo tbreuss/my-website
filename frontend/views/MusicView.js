@@ -1,12 +1,12 @@
 import m from 'mithril'
-import PageModel from '../models/PageModel'
-import HtmlHelper from '../helpers/HtmlHelper'
+import {PageModel} from '../models/PageModel'
+import {scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
 
-export default {
+export const MusicView = {
   oncreate: () => {
-    HtmlHelper.setActiveMenuItem()
-    HtmlHelper.setPageTitle('Musik')
-    HtmlHelper.scrollTop()
+    setActiveMenuItem()
+    setPageTitle('Musik')
+    scrollTop()
   },
   view: () => m.trust(PageModel.html)
 }

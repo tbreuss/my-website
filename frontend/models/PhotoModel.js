@@ -1,6 +1,6 @@
 import m from 'mithril'
 
-const PhotoModel = {
+export const PhotoModel = {
   list: [],
   loadList: () => m.request({
     method: 'GET',
@@ -17,5 +17,3 @@ const PhotoModel = {
   })
     .then((result) => PhotoModel.latest = result)
 }
-
-export default PhotoModel

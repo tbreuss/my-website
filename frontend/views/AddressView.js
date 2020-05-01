@@ -1,12 +1,12 @@
 import m from 'mithril'
-import PageModel from '../models/PageModel'
-import HtmlHelper from '../helpers/HtmlHelper'
+import {PageModel} from '../models/PageModel'
+import {scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
 
-export default {
+export const AddressView = {
   oncreate: () => {
-    HtmlHelper.setActiveMenuItem()
-    HtmlHelper.setPageTitle('Adresse')
-    HtmlHelper.scrollTop()
+    setActiveMenuItem()
+    setPageTitle('Adresse')
+    scrollTop()
   },
   view: () => m.trust(PageModel.html)
 }

@@ -1,11 +1,11 @@
 import m from 'mithril'
-import HtmlHelper from '../helpers/HtmlHelper'
+import {scrollTop, setActiveMenuItem, setPageTitle} from '../helpers/HtmlHelper'
 
-export default {
+export const ErrorView = {
   oncreate: () => {
-    HtmlHelper.setActiveMenuItem()
-    HtmlHelper.setPageTitle('Fehler')
-    HtmlHelper.scrollTop()
+    setActiveMenuItem()
+    setPageTitle('Fehler')
+    scrollTop()
   },
   view: () => m('div', [
     m('p.lead', 'Uups?!'),
