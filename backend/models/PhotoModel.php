@@ -13,27 +13,28 @@ class PhotoModel
     {
         $sql = "
             SELECT id, extension, name, DATE_FORMAT(photodate, '%d.%m.%Y') as date
-            FROM foto         
+            FROM foto
             WHERE deleted IS NULL
-            AND panorama = 0      
+            AND panorama = 0
             ORDER BY photodate DESC;
         ";
         return DB::query($sql)->fetchAll();
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public static function fetchLatest(): array
+    public static function fetchLatest(): ?array
     {
         $sql = "
             SELECT id, extension, name, DATE_FORMAT(photodate, '%d.%m.%Y') as date
-            FROM foto         
+            FROM foto
             WHERE deleted IS NULL
-            AND panorama = 0      
+            AND panorama = 0
             ORDER BY photodate DESC
             LIMIT 1
         ";
-        return DB::query($sql)->fetch();
+        $row = DB::query($sql)->fetch();
+        return $row ? $row : null;
     }
 }

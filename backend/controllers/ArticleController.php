@@ -18,13 +18,15 @@ class ArticleController
     public static function actionDetail(string $slug)
     {
         $detail = ArticleModel::fetchOne($slug);
-        if (!empty($detail)) {
-            if ($detail['format'] === 'markdown') {
-                $detail['content'] = (new Parsedown)->text($detail['content']);
-            }
-            $detail['created_at'] = DateHelper::formatMysqlDate($detail['created_at']);
-            $detail['updated_at'] = DateHelper::formatMysqlDate($detail['updated_at']);
+        if (is_null($detail)) {
+            Flight::json([], 404);
+            exit;
         }
+        if ($detail['format'] === 'markdown') {
+            $detail['content'] = (new Parsedown)->text($detail['content']);
+        }
+        $detail['created_at'] = DateHelper::formatMysqlDate($detail['created_at']);
+        $detail['updated_at'] = DateHelper::formatMysqlDate($detail['updated_at']);
         Flight::json($detail);
     }
 }

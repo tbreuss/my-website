@@ -20,9 +20,11 @@ class PhotoController
     public static function actionLatest()
     {
         $latest = PhotoModel::fetchLatest();
-        if (!empty($latest)) {
-            ImageHelper::createThumbnail(800, 800, $latest['id'], $latest['extension']);
+        if (is_null($latest)) {
+            Flight::json([], 404);
+            exit;
         }
+        ImageHelper::createThumbnail(800, 800, $latest['id'], $latest['extension']);
         Flight::json($latest);
     }
 }

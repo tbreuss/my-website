@@ -13,7 +13,7 @@ class ArticleModel
     {
         $sql = "
             SELECT *
-            FROM article         
+            FROM article
             WHERE 1
             ORDER BY created_at DESC;
         ";
@@ -22,16 +22,17 @@ class ArticleModel
 
     /**
      * @param string $slug
-     * @return array
+     * @return array|null
      */
-    public static function fetchOne(string $slug): array
+    public static function fetchOne(string $slug): ?array
     {
         $sql = "
             SELECT *
-            FROM article       
+            FROM article
             WHERE 1
-            AND slug = :slug;        
+            AND slug = :slug;
         ";
-        return DB::query($sql, ['slug' => $slug])->fetch();
+        $row = DB::query($sql, ['slug' => $slug])->fetch();
+        return $row ? $row : null;
     }
 }
