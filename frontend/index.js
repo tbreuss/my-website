@@ -23,7 +23,7 @@ m.route(document.body, '/', {
     onmatch: () => PageModel.load('musik'),
     render: () => m(LayoutView, m(MusicView))
   },
-  '/unterwegs': {
+  '/erlebnisse': {
     onmatch: () => PhotoModel.loadList(),
     render: () => m(LayoutView, m(OnTheMoveView))
   },

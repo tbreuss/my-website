@@ -17,7 +17,7 @@ const LatestArticle = {
 
 const LatestPhoto = {
   view: ({attrs: {photo}}) => [
-    m('p.lead', 'Zuletzt unterwegs'),
+    m('p.lead', 'Zuletzt erlebt'),
     m('.img', {style: {marginTop: '0.85rem'}}, [
       m('img', {
         alt: photo.name,

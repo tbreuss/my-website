@@ -8,12 +8,12 @@ window.addEventListener('resize', lazyLoadImages)
 
 export const OnTheMoveView = {
   oncreate: () => {
-    updatePage('', 'Unterwegs')
+    updatePage('erlebnisse', 'Erlebnisse')
     lazyLoadImages()
   },
   onupdate: () => lazyLoadImages,
   view: () => m('.photos', [
-    m('h2', 'Unterwegs'),
+    m('h2', 'Erlebnisse'),
     PhotoModel.list.map((photo) => m('.img', [
         m('img', {
           'data-src': '/assets/media/thumbs/' + photo.id + '.' + photo.extension,

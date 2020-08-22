@@ -8,14 +8,14 @@ export const LayoutView = {
       ]),
       m('nav.site-navigation', [
         m('ul', [
-          m('li.site-navigation__home', [
-            m(m.route.Link, {href: '/'}, 'Home')
-          ]),
           m('li.site-navigation__portfolio', [
             m(m.route.Link, {href: '/portfolio'}, 'Portfolio')
           ]),
           m('li.site-navigation__artikel', [
             m(m.route.Link, {href: '/artikel'}, 'Artikel')
+          ]),
+          m('li.site-navigation__erlebnisse', [
+            m(m.route.Link, {href: '/erlebnisse'}, 'Erlebnisse')
           ])
         ])
       ]),
