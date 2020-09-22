@@ -400,3 +400,7 @@ img.lazy {
 img.lazy[data-src] {
     opacity: 0;
 }
+
+.articles ul {
+    margin-left: 1.1em;
+}
