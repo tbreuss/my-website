@@ -218,9 +218,9 @@ pre>code {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     margin-bottom: 2.5rem
 }
 
@@ -277,7 +277,8 @@ pre>code {
 .site-navigation {
     display: inline-block;
     vertical-align: middle;
-    text-align: right
+    text-align: right;
+    margin-top: 0.7rem;
 }
 
 .site-navigation ul {
@@ -290,10 +291,22 @@ pre>code {
     vertical-align: middle
 }
 
-.site-navigation li:after {
-    content: "/";
-    color: #a7a7a7;
-    padding: 0 0.5rem
+.site-navigation li {
+    display: block;
+}
+
+@media all and (min-width: 411px) {
+    .site-navigation {
+        margin-top: 1rem;
+    }
+    .site-navigation li {
+        display: inline-block;
+    }
+    .site-navigation li:after {
+        content: "/";
+        color: #a7a7a7;
+        padding: 0 0.5rem
+    }
 }
 
 .site-navigation li:last-child:after {
