@@ -6,7 +6,7 @@ export const ErrorView = {
   oncreate: () => {
     updatePage('', 'Fehler')
   },
-  view: () => m('div', [
+  view: () => m('div',
     m('p.lead', 'Grmpf?!'),
     m('p', [
       'Es ist ein Serverfehler ',
@@ -14,10 +14,10 @@ export const ErrorView = {
       ' aufgetreten.'
     ]),
     m('p', 'Was kannst du tun?'),
-    m('ul[style=margin-top:0]', [
+    m('ul[style=margin-top:0]',
       m('li', 'Auf bessere Zeiten warten'),
       m('li', 'Nochmal versuchen'),
       m('li', 'Einen Kaffee trinken ;-)'),
-    ])
-  ])
+    )
+  )
 }

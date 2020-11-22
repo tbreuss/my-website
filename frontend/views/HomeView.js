@@ -7,18 +7,18 @@ import {updatePage} from '../helpers/HtmlHelper'
 const LatestArticle = {
   view: ({attrs: {article}}) => [
     m('p.lead', 'Letzter Artikel'),
-    m('p', {style: {marginTop: '0.85rem'}}, [
+    m('p', {style: {marginTop: '0.85rem'}},
       m(m.route.Link, {href: '/artikel/' + article.slug}, article.title),
       m('br'),
       article.abstract
-    ])
+    )
   ]
 }
 
 const LatestPhoto = {
   view: ({attrs: {photo}}) => [
     m('p.lead', 'Zuletzt erlebt'),
-    m('.img', {style: {marginTop: '0.85rem'}}, [
+    m('.img', {style: {marginTop: '0.85rem'}},
       m('img', {
         alt: photo.name,
         src: '/assets/media/thumbs/' + photo.id + '.' + photo.extension,
@@ -27,7 +27,7 @@ const LatestPhoto = {
         }
       }),
       m('caption', photo.date + ' – ' + photo.name)
-    ])
+    )
   ]
 }
 

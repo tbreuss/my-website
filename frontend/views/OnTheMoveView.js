@@ -12,14 +12,15 @@ export const OnTheMoveView = {
     lazyLoadImages()
   },
   onupdate: () => lazyLoadImages,
-  view: () => m('.photos', [
+  view: () => m('.photos',
     m('h2', 'Erlebnisse'),
-    PhotoModel.list.map((photo) => m('.img', [
-        m('img', {
-          'data-src': '/assets/media/thumbs/' + photo.id + '.' + photo.extension,
-          class: 'lazy'
-        }, photo.id),
-        m('caption', photo.date + ' – ' + photo.name)
-      ])
-    )])
+    PhotoModel.list.map((photo) => m('.img',
+      m('img', {
+        'data-src': '/assets/media/thumbs/' + photo.id + '.' + photo.extension,
+        class: 'lazy'
+      }, photo.id),
+      m('caption', photo.date + ' – ' + photo.name)
+      )
+    )
+  )
 }
