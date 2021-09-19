@@ -22,7 +22,7 @@ export const LayoutView = {
     ),
     m('.main', children),
     m('.site-footer',
-      m('p.hug', '© 2020 Thomas Breuss')
+      m('p.hug', '© 2021 Thomas Breuss')
     )
   )
 }
