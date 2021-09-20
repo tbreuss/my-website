@@ -25,5 +25,5 @@ export const ArticleDetailView = {
         m(m.route.Link, {href: '/artikel'}, 'Alle Artikel anzeigen'),
       )
     )
-    : m('h2', 'Artikel nicht gefunden')
+    : ''
 }
