@@ -3,8 +3,11 @@ import {updatePage} from '../helpers/HtmlHelper'
 import {lastError} from '../api'
 
 export const ErrorView = {
-  oncreate: () => {
+  oninit: () => {
     updatePage('', 'Fehler')
+    if (lastError.code === '') {
+      m.route.set('/')
+    }
   },
   view: () => m('div',
     m('p.lead', 'Grmpf?!'),

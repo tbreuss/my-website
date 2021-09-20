@@ -8,56 +8,34 @@ import {OnTheMoveView} from './views/OnTheMoveView'
 import {MusicView} from './views/MusicView'
 import {PortfolioView} from './views/PortfolioView'
 import {LayoutView} from './views/LayoutView'
-import {ArticleModel} from './models/ArticleModel'
-import {PageModel} from './models/PageModel'
-import {PhotoModel} from './models/PhotoModel'
 import {NotFoundView} from './views/NotFoundView'
-import {lastError} from './api'
 
 m.route(document.body, '/', {
   '/portfolio': {
-    onmatch: () => PageModel.load('portfolio'),
-    render: () => m(LayoutView, m(PortfolioView))
+    view: () => m(LayoutView, m(PortfolioView))
   },
   '/musik': {
-    onmatch: () => PageModel.load('musik'),
-    render: () => m(LayoutView, m(MusicView))
+    view: () => m(LayoutView, m(MusicView))
   },
   '/erlebnisse': {
-    onmatch: () => PhotoModel.loadList(),
-    render: () => m(LayoutView, m(OnTheMoveView))
+    view: () => m(LayoutView, m(OnTheMoveView))
   },
   '/adresse': {
-    onmatch: () => PageModel.load('adresse'),
-    render: () => m(LayoutView, m(AddressView))
+    view: () => m(LayoutView, m(AddressView))
   },
   '/artikel/:slug': {
-    onmatch: ({slug}) => ArticleModel.load(slug),
-    render: () => m(LayoutView, m(ArticleDetailView))
+    view: () => m(LayoutView, m(ArticleDetailView))
   },
   '/artikel': {
-    onmatch: () => ArticleModel.loadList(),
-    render: () => m(LayoutView, m(ArticleListView))
+    view: () => m(LayoutView, m(ArticleListView))
   },
   '/fehler': {
-    onmatch: () => {
-      if (lastError.code === '') {
-        m.route.set('/')
-      }
-    },
-    render: () => {
-      return m(LayoutView, m(ErrorView))
-    }
+    view: () => m(LayoutView, m(ErrorView))
   },
   '/': {
-    onmatch: () => Promise.all([
-      PageModel.load('home'),
-      ArticleModel.loadList(),
-      PhotoModel.loadLatest()
-    ]),
-    render: () => m(LayoutView, m(HomeView))
+    view: () => m(LayoutView, m(HomeView))
   },
   '/:404...': {
-    render: () => m(LayoutView, m(NotFoundView))
+    view: () => m(LayoutView, m(NotFoundView))
   }
 })
