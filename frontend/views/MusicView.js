@@ -3,8 +3,7 @@ import {PageModel} from '../models/PageModel'
 import {updatePage} from '../helpers/HtmlHelper'
 
 export const MusicView = {
-  oninit: () => {
-    PageModel.load('musik')
+  oncreate: () => {
     updatePage('', 'Musik')
   },
   view: () => m.trust(PageModel.html)

@@ -3,8 +3,7 @@ import {ArticleModel} from '../models/ArticleModel'
 import {updatePage} from '../helpers/HtmlHelper'
 
 export const ArticleListView = {
-  oninit: () => {
-    ArticleModel.loadList()
+  oncreate: () => {
     updatePage('artikel', 'Artikel')
   },
   view: () => m('.articles',

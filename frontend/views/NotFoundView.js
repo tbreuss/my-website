@@ -2,7 +2,7 @@ import m from 'mithril'
 import {updatePage} from '../helpers/HtmlHelper'
 
 export const NotFoundView = {
-  oninit: () => {
+  oncreate: () => {
     updatePage('', 'Seite nicht gefunden')
   },
   view: () => m('div',

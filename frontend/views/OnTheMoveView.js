@@ -7,16 +7,11 @@ window.addEventListener('load', lazyLoadImages)
 window.addEventListener('resize', lazyLoadImages)
 
 export const OnTheMoveView = {
-  oninit: () => {
-    PhotoModel.loadList()
-    updatePage('erlebnisse', 'Erlebnisse')
-  },
   oncreate: () => {
+    updatePage('erlebnisse', 'Erlebnisse')
     lazyLoadImages()
   },
-  onupdate: () => {
-    lazyLoadImages()
-  },
+  onupdate: () => lazyLoadImages,
   view: () => m('.photos',
     m('h2', 'Erlebnisse'),
     PhotoModel.list.map((photo) => m('.img',

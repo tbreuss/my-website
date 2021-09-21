@@ -2,24 +2,25 @@ import m from 'mithril'
 import {ArticleModel} from '../models/ArticleModel'
 import {updatePage} from '../helpers/HtmlHelper'
 
+let article = null
+
 export const ArticleDetailView = {
-  oninit: () => {
-    ArticleModel.load(m.route.param('slug')).then(() => {
-      updatePage('artikel', ArticleModel.current.title + ' // Artikel')
-    })
+  oninit: () => article = ArticleModel.current,
+  oncreate: () => {
+    updatePage('artikel', ArticleModel.current.title + ' // Artikel')
   },
-  view: () => ArticleModel.current
+  view: () => (article)
     ? m('.articles',
-      m('h2', ArticleModel.current.title),
+      m('h2', article.title),
       m('div',
-        ArticleModel.current.updated_at ? 'Letzte Änderung: ' : 'Erstellt am: ',
-        ArticleModel.current.updated_at ? ArticleModel.current.updated_at : ArticleModel.current.created_at,
+        article.updated_at ? 'Letzte Änderung: ' : 'Erstellt am: ',
+        article.updated_at ? article.updated_at : article.created_at,
         ' • ',
         'Lesezeit: ',
-        ArticleModel.current.reading_time,
+        article.reading_time,
         ' Minuten'
       ),
-      m('div', m.trust(ArticleModel.current.content)),
+      m('div', m.trust(article.content)),
       m('p',
         m(m.route.Link, {href: '/artikel'}, 'Alle Artikel anzeigen'),
       )

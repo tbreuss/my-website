@@ -32,17 +32,12 @@ const LatestPhoto = {
 }
 
 export const HomeView = {
-  oninit: () => {
-    Promise.all([
-      PageModel.load('home'),
-      ArticleModel.loadList(),
-      PhotoModel.loadLatest()
-    ])
+  oncreate: () => {
     updatePage('home', '')
   },
   view: () => [
     m.trust(PageModel.html),
-    PhotoModel.latest ? m(LatestPhoto, {photo: PhotoModel.latest}) : '',
-    ArticleModel.list[0] ? m(LatestArticle, {article: ArticleModel.list[0]}) : ''
+    m(LatestPhoto, {photo: PhotoModel.latest}),
+    m(LatestArticle, {article: ArticleModel.list[0]})
   ]
 }
