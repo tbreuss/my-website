@@ -14,6 +14,12 @@ export const ArticleModel = {
       .then((result) => {
         ArticleModel.current = result
       })
+  },
+  latest: {},
+  loadLatest: (background = false) => {
+    return api.getLatestArticle(background)
+      .then((result) => {
+        ArticleModel.latest = result
+      })
   }
-
 }

@@ -34,6 +34,9 @@ export const api = {
   getArticles(background = false) {
     return request({ url: `${api.path}/articles`, background: background })
   },
+  getLatestArticle(background = false) {
+    return request({ url: `${api.path}/articles/latest`, background: background })
+  },
   getArticle(slug) {
     return request({ url: `${api.path}/articles/${slug}` })
   },

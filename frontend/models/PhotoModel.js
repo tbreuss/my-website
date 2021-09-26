@@ -7,8 +7,7 @@ export const PhotoModel = {
       .then((result) => {
         PhotoModel.list = result
       })
-  }
-  ,
+  },
   latest: {},
   loadLatest: (background = false) => {
     return api.getLatestPhotos(background)

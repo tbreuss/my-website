@@ -35,6 +35,6 @@ class PhotoModel
             LIMIT 1
         ";
         $row = DB::query($sql)->fetch();
-        return $row ? $row : null;
+        return $row ?: null;
     }
 }

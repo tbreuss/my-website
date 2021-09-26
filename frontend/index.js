@@ -59,7 +59,7 @@ m.route(document.body, '/', {
     onmatch: async () => {
       await Promise.all([
         PageModel.load('home', true),
-        ArticleModel.loadList(true),
+        ArticleModel.loadLatest(true),
         PhotoModel.loadLatest(true)
       ])
     },

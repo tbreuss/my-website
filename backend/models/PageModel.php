@@ -19,6 +19,6 @@ class PageModel
             AND slug = :slug;
         ";
         $row = DB::query($sql, ['slug' => $slug])->fetch();
-        return $row ? $row : null;
+        return $row ?: null;
     }
 }

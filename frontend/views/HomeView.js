@@ -38,6 +38,6 @@ export const HomeView = {
   view: () => [
     m.trust(PageModel.html),
     m(LatestPhoto, {photo: PhotoModel.latest}),
-    m(LatestArticle, {article: ArticleModel.list[0]})
+    m(LatestArticle, {article: ArticleModel.latest})
   ]
 }

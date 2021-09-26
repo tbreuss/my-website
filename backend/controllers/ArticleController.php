@@ -29,4 +29,19 @@ class ArticleController
         $detail['updated_at'] = DateHelper::formatMysqlDate($detail['updated_at']);
         Flight::json($detail);
     }
+
+    public static function actionLatest()
+    {
+        $latest = ArticleModel::fetchLatest();
+        if (is_null($latest)) {
+            Flight::json([], 404);
+            exit;
+        }
+        if ($latest['format'] === 'markdown') {
+            $latest['content'] = (new Parsedown)->text($latest['content']);
+        }
+        $latest['created_at'] = DateHelper::formatMysqlDate($latest['created_at']);
+        $latest['updated_at'] = DateHelper::formatMysqlDate($latest['updated_at']);
+        Flight::json($latest);
+    }
 }
