@@ -35,11 +35,9 @@ export const HomeView = {
   oncreate: () => {
     updatePage('home', '')
   },
-  view: () => {
-    return [
-      m.trust(PageModel.html),
-      m(LatestPhoto, {photo: PhotoModel.latest}),
-      m(LatestArticle, {article: ArticleModel.list[0]})
-    ]
-  }
+  view: () => [
+    m.trust(PageModel.html),
+    m(LatestPhoto, {photo: PhotoModel.latest}),
+    m(LatestArticle, {article: ArticleModel.list[0]})
+  ]
 }
