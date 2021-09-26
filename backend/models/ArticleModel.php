@@ -33,6 +33,22 @@ class ArticleModel
             AND slug = :slug;
         ";
         $row = DB::query($sql, ['slug' => $slug])->fetch();
-        return $row ? $row : null;
+        return $row ?: null;
+    }
+
+    /**
+     * @return array|null
+     */
+    public static function fetchLatest(): ?array
+    {
+        $sql = "
+            SELECT *
+            FROM article
+            WHERE 1
+            ORDER BY updated_at DESC
+            LIMIT 1;
+        ";
+        $row = DB::query($sql)->fetch();
+        return $row ?: null;
     }
 }

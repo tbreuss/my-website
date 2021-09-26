@@ -2,10 +2,24 @@ import {api} from '../api'
 
 export const ArticleModel = {
   list: [],
-  loadList: () => api.get('article')
-    .then((result) => ArticleModel.list = result)
-  ,
+  loadList: (background = false) => {
+    return api.getArticles(background)
+      .then((result) => {
+        ArticleModel.list = result
+      })
+  },
   current: {},
-  load: (slug) => api.get('article/' + slug)
-    .then((result) => ArticleModel.current = result)
+  load: (slug) => {
+    return api.getArticle(slug)
+      .then((result) => {
+        ArticleModel.current = result
+      })
+  },
+  latest: {},
+  loadLatest: (background = false) => {
+    return api.getLatestArticle(background)
+      .then((result) => {
+        ArticleModel.latest = result
+      })
+  }
 }

@@ -1,6 +1,6 @@
 import m from 'mithril'
 
-export const lastError = {
+const lastError = {
   code: '',
   response: '',
 }
@@ -18,14 +18,10 @@ const handlers = {
   }
 }
 
-const request = method => (url, options = {}) => {
+const request = (options = {}) => {
   lastError.code = ''
   lastError.response = ''
-  return m.request({
-    method,
-    url: '/api/' + url,
-    ...options // might need Object.assign for Edge
-  })
+  return m.request(options)
     .catch(err => {
       if (err.code in handlers) handlers[err.code](err)
       else throw err
@@ -33,8 +29,24 @@ const request = method => (url, options = {}) => {
 }
 
 export const api = {
-  get: request('GET'),
-  put: request('PUT'),
-  post: request('POST'),
-  delete: request('DELETE')
+  path: '/api',
+  lastError: lastError,
+  getArticles(background = false) {
+    return request({ url: `${api.path}/articles`, background: background })
+  },
+  getLatestArticle(background = false) {
+    return request({ url: `${api.path}/articles/latest`, background: background })
+  },
+  getArticle(slug) {
+    return request({ url: `${api.path}/articles/${slug}` })
+  },
+  getPage(slug, background = false) {
+    return request({ url: `${api.path}/pages/${slug}`, background: background })
+  },
+  getPhotos() {
+    return request({ url: `${api.path}/photos` })
+  },
+  getLatestPhotos(background = false) {
+    return request({ url: `${api.path}/photos/latest`, background: background })
+  }
 }

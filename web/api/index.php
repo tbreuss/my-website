@@ -38,10 +38,11 @@ $app->map('notFound', function() use ($app) {
         ->send();
 });
 
-$app->route('GET /article/@slug', [ArticleController::class, 'actionDetail']);
-$app->route('GET /article', [ArticleController::class, 'actionList']);
-$app->route('GET /page/@slug', [PageController::class, 'actionDetail']);
-$app->route('GET /photo/latest', [PhotoController::class, 'actionLatest']);
-$app->route('GET /photo', [PhotoController::class, 'actionList']);
+$app->route('GET /articles/latest', [ArticleController::class, 'actionLatest']);
+$app->route('GET /articles/@slug', [ArticleController::class, 'actionDetail']);
+$app->route('GET /articles', [ArticleController::class, 'actionList']);
+$app->route('GET /pages/@slug', [PageController::class, 'actionDetail']);
+$app->route('GET /photos/latest', [PhotoController::class, 'actionLatest']);
+$app->route('GET /photos', [PhotoController::class, 'actionList']);
 
 $app->start();

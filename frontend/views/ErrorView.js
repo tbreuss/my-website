@@ -1,6 +1,6 @@
 import m from 'mithril'
 import {updatePage} from '../helpers/HtmlHelper'
-import {lastError} from '../api'
+import {api} from '../api'
 
 export const ErrorView = {
   oncreate: () => {
@@ -10,7 +10,7 @@ export const ErrorView = {
     m('p.lead', 'Grmpf?!'),
     m('p', [
       'Es ist ein Serverfehler ',
-      lastError.code,
+      api.lastError.code,
       ' aufgetreten.'
     ]),
     m('p', 'Was kannst du tun?'),
