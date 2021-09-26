@@ -324,10 +324,8 @@ pre>code {
 
 .site-footer {
     color: #a7a7a7;
-    margin: 0 -1rem;
-    margin-top: 2.5rem;
-    padding: 0 1rem;
-    padding-top: 0.2rem;
+    margin: 2.5rem 0 0 0;
+    padding: 0.2rem 0 0 0;
     border-top: 1px solid;
     font-size: 0.8rem
 }
