@@ -7,7 +7,7 @@ export const ErrorView = {
     updatePage('', 'Fehler')
   },
   view: () => m('div',
-    m('p.lead', 'Grmpf?!'),
+    m('h2', 'Grmpf?!'),
     m('p', [
       'Es ist ein Serverfehler ',
       api.lastError.code,
