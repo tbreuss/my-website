@@ -92,6 +92,10 @@ h2 {
     margin-bottom: 1.74rem;
 }
 
+h2.home {
+    text-transform: none;
+}
+
 h3 {
     font-size: 1.1rem;
     font-weight: bold;
@@ -403,6 +407,10 @@ div.album img {
     display: block;
     max-width: 100%;
     text-align: left;
+}
+
+.photos h2 +.img {
+    margin-top: 2.25rem;
 }
 
 /* lazy loading images */
