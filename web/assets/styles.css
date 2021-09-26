@@ -426,3 +426,7 @@ img.lazy[data-src] {
 .articles ul {
     margin-left: 1.1em;
 }
+
+.github {
+    float: right;
+}
