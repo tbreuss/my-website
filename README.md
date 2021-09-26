@@ -77,10 +77,10 @@ Copy `backend/config/example.php` to `backend/config/main.php` and edit settings
 
 ## Run
     
-JS
+Frontend
 
     npm run start
 
-PHP
+Backend
     
     php -S localhost:9999 -t web/
