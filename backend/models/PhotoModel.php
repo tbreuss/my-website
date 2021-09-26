@@ -13,7 +13,7 @@ class PhotoModel
     {
         $sql = "
             SELECT id, extension, name, DATE_FORMAT(photodate, '%d.%m.%Y') as date
-            FROM foto
+            FROM photo
             WHERE deleted IS NULL
             AND panorama = 0
             ORDER BY photodate DESC;
@@ -28,7 +28,7 @@ class PhotoModel
     {
         $sql = "
             SELECT id, extension, name, DATE_FORMAT(photodate, '%d.%m.%Y') as date
-            FROM foto
+            FROM photo
             WHERE deleted IS NULL
             AND panorama = 0
             ORDER BY photodate DESC

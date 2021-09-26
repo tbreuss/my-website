@@ -127,7 +127,7 @@ function main($config)
                 ];
 
                 DB::query('
-                  INSERT INTO foto (name, photodate, extension, created, modified)
+                  INSERT INTO photo (name, photodate, extension, created, modified)
                   VALUES (:name, :photodate, :extension, :created, :modified)
                 ', $params);
 
