@@ -12,7 +12,6 @@ import {ArticleModel} from './models/ArticleModel'
 import {PageModel} from './models/PageModel'
 import {PhotoModel} from './models/PhotoModel'
 import {NotFoundView} from './views/NotFoundView'
-import {api} from './api'
 
 m.route(document.body, '/', {
   '/portfolio': {
