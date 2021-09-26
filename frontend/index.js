@@ -12,6 +12,7 @@ import {ArticleModel} from './models/ArticleModel'
 import {PageModel} from './models/PageModel'
 import {PhotoModel} from './models/PhotoModel'
 import {NotFoundView} from './views/NotFoundView'
+import {api} from "./api";
 
 m.route(document.body, '/', {
   '/portfolio': {
@@ -51,6 +52,11 @@ m.route(document.body, '/', {
     render: () => m(LayoutView, m(ArticleListView))
   },
   '/fehler': {
+    onmatch: () => {
+      if (api.lastError.code === '') {
+        m.route.set('/')
+      }
+    },
     render: () => {
       return m(LayoutView, m(ErrorView))
     }

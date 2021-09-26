@@ -5,6 +5,8 @@ import {api} from '../api'
 export const ErrorView = {
   oncreate: () => {
     updatePage('', 'Fehler')
+    api.lastError.code = '' // reset error code
+    api.lastError.response = '' // reset error response
   },
   view: () => m('div',
     m('h2', 'Grmpf?!'),
