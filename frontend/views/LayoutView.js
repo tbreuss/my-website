@@ -23,7 +23,7 @@ export const LayoutView = {
     m('.main', children),
     m('.site-footer',
       m('p.github', m('a', {href:'https://github.com/tbreuss/my-website', target:'_blank'}, 'GitHub')),
-      m('p.hug', '© 2021 Thomas Breuss')
+      m('p.hug', '© 2022 Thomas Breuss')
     )
   )
 }
