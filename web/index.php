@@ -7,7 +7,7 @@
     <link href="assets/styles.css" rel="stylesheet"/>
 </head>
 <body>
-<script src="bin/app.js?v=<?= filemtime(__DIR__ . '/bin/app.js') ?>"></script>
+<script src="bin/main.js?v=<?= filemtime(__DIR__ . '/bin/main.js') ?>"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
