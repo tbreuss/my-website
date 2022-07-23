@@ -84,3 +84,5 @@ Frontend
 Backend
     
     php -S localhost:9999 -t web/
+
+Open <http://localhost:9999> in your browser.
