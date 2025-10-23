@@ -5,7 +5,6 @@
         }
     },
     "require": {
-        "php": "8.0",
         "ext-gd": "*",
         "ext-imap": "*",
         "ext-pdo": "*",
