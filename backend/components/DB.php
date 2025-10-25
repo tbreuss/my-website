@@ -21,19 +21,7 @@ class DB
 
     public static function init(array $options = [])
     {
-        self::$options = array_replace_recursive([
-            'host' => 'localhost',
-            'dbname' => '',
-            'username' => '',
-            'passwd' => '',
-            'port' => '3306',
-            'charset' => 'UTF8',
-            'pdo' => [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => true
-            ]
-        ], $options);
+        self::$options = $options;
     }
 
     /**
@@ -42,13 +30,7 @@ class DB
     public static function instance(): PDO
     {
         if (self::$instance === null) {
-            $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=%s',
-                self::$options['host'],
-                self::$options['port'],
-                self::$options['dbname'],
-                self::$options['charset']
-            );
-            self::$instance = new PDO($dsn, self::$options['username'], self::$options['passwd'], self::$options['pdo']);
+            self::$instance = new PDO(self::$options['dsn']);
         }
         return self::$instance;
     }
