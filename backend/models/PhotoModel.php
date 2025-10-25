@@ -12,7 +12,7 @@ class PhotoModel
     public static function fetchAll(): array
     {
         $sql = "
-            SELECT id, extension, name, DATE_FORMAT(photodate, '%d.%m.%Y') as date
+            SELECT id, extension, name, strftime('%d.%m.%Y', photodate) as date
             FROM photo
             WHERE deleted IS NULL
             AND panorama = 0
@@ -27,7 +27,7 @@ class PhotoModel
     public static function fetchLatest(): ?array
     {
         $sql = "
-            SELECT id, extension, name, DATE_FORMAT(photodate, '%d.%m.%Y') as date
+            SELECT id, extension, name, strftime('%d.%m.%Y', photodate) as date
             FROM photo
             WHERE deleted IS NULL
             AND panorama = 0

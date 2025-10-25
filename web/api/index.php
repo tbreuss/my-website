@@ -9,6 +9,8 @@ define('ROOT_DIR', dirname(__DIR__, 2));
 
 ini_set('display_errors', 0);
 ini_set('error_log', ROOT_DIR . '/runtime/log/error.log');
+ini_set('error_reporting', E_ERROR);
+
 setlocale (LC_ALL, 'de_DE');
 
 // vendor autoload
