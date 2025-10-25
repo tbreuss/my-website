@@ -2,12 +2,7 @@
 
 return [
     'db' => [
-        'host' => '***',
-        'dbname' => '***',
-        'username' => '***',
-        'passwd' => '***',
-        'charset' => 'utf8',
-        'emulatePrepare' => true,
+        'dsn' => 'sqlite:' . dirname(__DIR__, 2) . '/database/my-website.sqlite3',
     ],
     'imap' => [
         'mailbox' => '{***:110/pop3/novalidate-cert}INBOX',
