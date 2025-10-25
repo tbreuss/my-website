@@ -1,5 +1,6 @@
 .idea
 backend/config/main.php
+database
 node_modules
 vendor
 web/assets/media
